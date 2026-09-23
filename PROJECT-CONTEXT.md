@@ -2,7 +2,7 @@
 
 **Version:** v0.1  
 **Phase:** Block 0.1 — Project Foundation **(COMPLETED)**  
-**Status:** Foundation synchronized to GitHub; continuity test passed; AI handoff protocol added.
+**Status:** Foundation synchronized to GitHub; continuity test passed; AI handoff protocol added; legacy project analyzed and mapped for reuse.
 
 ## Current state
 
@@ -24,16 +24,22 @@ The architecture, continuity protocol, and v0.1 foundation are prepared and sync
 
 ## Current objective
 
-Prepare the inputs and cognitive architecture plan for Block 1 — CEO Brain.
+Use the completed legacy-project audit plus validated external leadership research to design Block 1 — CEO Brain.
 
 ## Next objective
 
 Begin Block 1 — CEO Brain:
-1. Analyze user-provided source files.
-2. Research documented CEO/leadership decision principles as references.
+1. Research documented CEO/leadership decision principles as references.
+2. Synthesize legacy candidate mechanisms with primary/current sources.
 3. Define CEO Brain cognitive architecture.
 4. Define its decision engine, boundaries, interfaces, memory requirements, and evaluation criteria.
 5. Implement the first CEO Brain artifacts only after the architecture is approved.
+
+## Legacy source status
+
+The uploaded legacy project was fully inventoried and mapped into the current architecture. Canonical audit: `knowledge/legacy/PROJECT-IMPORT-AUDIT.md`. Reuse map: `knowledge/legacy/REUSE-MAP.md`. CEO-specific candidate mechanisms: `brains/ceo/LEGACY-SOURCE-INPUTS.md`. Legacy evaluation pattern: `evaluations/LEGACY-EVALUATION-INPUTS.md`.
+
+The legacy archive is reference material, not a competing source of truth. Duplicate trees and provider-specific implementations are not imported wholesale.
 
 ## Protected constraints
 
