@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 2026-09-22 — Business Brain scenario validation preparation
+- Converted all 22 acceptance tests into concrete behavioral scenarios.
+- Added five cross-brain workflow scenarios covering CEO, Business, AI Director and AI Architect boundaries.
+- Added an explicit six-state ambiguous-experiment protocol and integrated it into the Business Brain system prompt and decision engine.
+- Added a pre-runtime scenario validation report.
+- Result: 22/22 PASS for scenario/specification conformance; this is not a runtime/model-behavior benchmark.
+- Block 2 remains open until a reproducible provider-neutral runtime/evaluator executes the scenarios and cross-brain workflows.
+
+
 ## 2026-09-22 — Business Brain v0.1 architecture validation
 - Validated the Business Brain architecture against all 22 acceptance requirements.
 - Result: 19 PASS, 3 PARTIAL, 0 FAIL at specification/architecture level.
