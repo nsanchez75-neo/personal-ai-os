@@ -1,0 +1,34 @@
+name: Business Brain Runtime Harness
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  harness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run provider-neutral harness
+        run: |
+          python -m runtime.business_brain.runner
+      - name: Verify harness result
+        run: |
+          python - <<'PY'
+          import json
+          p="evaluations/results/BUSINESS-BRAIN-v0.1-HARNESS-RESULTS.json"
+          d=json.load(open(p,encoding="utf-8"))
+          assert d["validation_mode"]=="HARNESS_VALIDATION"
+          assert d["scenario_count"]==27, d["scenario_count"]
+          assert all(r["status"]=="PASS" for r in d["results"])
+          print("HARNESS PASS:", d["scenario_count"], "scenarios")
+          PY
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: business-brain-harness-results
+          path: evaluations/results/BUSINESS-BRAIN-v0.1-HARNESS-RESULTS.json
