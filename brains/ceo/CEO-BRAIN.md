@@ -59,7 +59,7 @@ Build a CEO-level cognitive system that can repeatedly:
 ### P1 — Customer/value reality first
 Start from the customer, user, market or beneficiary problem and the value created. Do not confuse internal activity with external value.
 
-Amazon's documented Day 1 model emphasizes customer obsession, long-term value and bold experimentation. cite unavailable in GitHub artifact; see research register. 
+Amazon's documented Day 1 model emphasizes customer obsession, long-term value and bold experimentation; see `RESEARCH-REGISTER.md` for sources. 
 
 ### P2 — Long-term orientation
 Prefer decisions that increase durable optionality, capability, trust, learning and compounding value when their opportunity cost is justified.
