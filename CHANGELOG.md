@@ -1,4 +1,12 @@
-# CHANGELOG
+ # CHANGELOG
+
+## 2026-09-22 — Business source integration: Hormozi + personal brand/content
+- Analyzed the user-provided `resumen-completo-alex-hormozi-v2.md` and `extracto_completo_marca_personal-v2.md`.
+- Added `knowledge/business/HORMOZI-SOURCE-INPUTS.md` and `knowledge/business/PERSONAL-BRAND-SOURCE-INPUTS.md`.
+- Normalized selected mechanisms into `skills/business-model/SKILL.md`, `skills/sales/SKILL.md`, `skills/marketing/SKILL.md` and `skills/content/SKILL.md`.
+- Preserved source-derived frameworks as reference inputs rather than universal laws or personas.
+- Explicitly excluded unsupported universal pricing/margin/follower thresholds, causal claims without validation, deceptive tactics, and provider-specific implementation.
+- Updated Business Brain status and moved the next architectural objective to Business Brain design.
 
 ## 2026-09-22 — CEO Brain v0.1
 - Completed external leadership research using primary/current sources from Amazon/AWS, Berkshire Hathaway, Alibaba, Microsoft, Intel and OpenAI.
@@ -10,8 +18,6 @@
 - Created `evaluations/CEO-BRAIN-v0.1-EVAL.md`.
 - Added closed-loop learning, prediction calibration, anti-bias controls, decision classification, capital allocation, risk governance, human-approval boundaries and cross-brain interfaces.
 
-# CHANGELOG
-
 ## 2026-09-22 — Legacy Project Import Audit
 - Completed full structural/content audit of uploaded `ai_.zip`.
 - Mapped legacy agents, skills, evaluation suites, workflows, knowledge assets, and provider-specific automation to the canonical PERSONAL AI OS architecture.
@@ -19,7 +25,6 @@
 - Added `brains/ceo/LEGACY-SOURCE-INPUTS.md` and `evaluations/LEGACY-EVALUATION-INPUTS.md`.
 - Added D-009: legacy project is reusable reference material, not canonical authority.
 - Confirmed the next objective remains Block 1 — CEO Brain design.
-
 
 ## v0.1 — Foundation
 
@@ -55,4 +60,4 @@
 - Updated `PROJECT-CONTEXT.md` so a new AI can identify the current objective without relying on the original conversation.
 
 ### Next
-- Prepare inputs and cognitive architecture for Block 1 — CEO Brain.
+- Design Business Brain after the source-integration pass.
