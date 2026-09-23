@@ -2,7 +2,7 @@
 
 **Version:** v0.1  
 **Phase:** Block 2 — Business Brain **(v0.1 architecture drafted)**  
-**Status:** Foundation synchronized; continuity validated; AI handoff protocol established; legacy project audited; CEO Brain v0.1 drafted; user-provided business/content corpora normalized; Business Brain v0.1 cognitive architecture, system prompt, decision/experiment engine, memory interface and evaluation suite drafted.
+**Status:** Foundation synchronized; continuity validated; AI handoff protocol established; legacy project audited; CEO Brain v0.1 drafted; user-provided business/content corpora normalized; Business Brain v0.1 architecture drafted and structurally validated with a conditional pass.
 
 ## Current state
 
@@ -31,16 +31,17 @@ The canonical three-brain architecture remains stable. Business Brain is now def
 
 ## Current objective
 
-Validate and refine Business Brain v0.1 against representative business scenarios and the legacy 54-skill/51-evaluation corpus before broader canonicalization.
+Run behavioral/scenario validation of Business Brain v0.1 after the architecture-level conditional pass.
 
 ## Next objective
 
-1. Map the highest-value legacy Business/GTM/marketing/sales skills to the new Business Brain architecture.
-2. Normalize only non-duplicative skills into canonical contracts.
-3. Execute the Business Brain evaluation suite against representative scenarios.
+1. Add and run representative behavioral scenarios for the 22 acceptance tests.
+2. Implement the ambiguous-experiment decision protocol.
+3. Test scaling decisions under conflicting economics/customer-outcome/capacity conditions.
 4. Add failures as regression cases.
-5. Define Business Brain ↔ CEO Brain ↔ AI Director workflow contracts.
-6. Close Block 2 only after evaluation and interface validation.
+5. Validate Business Brain ↔ CEO Brain ↔ AI Director workflow contracts end-to-end.
+6. Map and normalize only the highest-value non-duplicative legacy skills after behavioral validation.
+7. Close Block 2 only after scenario and interface validation.
 
 ## Source governance
 
