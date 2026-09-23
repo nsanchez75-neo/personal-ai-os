@@ -1,12 +1,46 @@
 # CHANGELOG
 
-## 2026-09-22
-- Completed full structural/content audit of uploaded legacy project archive `ai_.zip`.
+## 2026-09-22 — Legacy Project Import Audit
+- Completed full structural/content audit of uploaded `ai_.zip`.
 - Mapped legacy agents, skills, evaluation suites, workflows, knowledge assets, and provider-specific automation to the canonical PERSONAL AI OS architecture.
-- Added legacy import audit and reuse map under `knowledge/legacy/`.
-- Added CEO-specific legacy source inputs under `brains/ceo/`.
-- Added legacy evaluation inputs under `evaluations/`.
+- Added `knowledge/legacy/PROJECT-IMPORT-AUDIT.md` and `knowledge/legacy/REUSE-MAP.md`.
+- Added `brains/ceo/LEGACY-SOURCE-INPUTS.md` and `evaluations/LEGACY-EVALUATION-INPUTS.md`.
 - Added D-009: legacy project is reusable reference material, not canonical authority.
-- Confirmed next objective remains Block 1 — CEO Brain design.
+- Confirmed the next objective remains Block 1 — CEO Brain design.
 
-## Previous history
+
+## v0.1 — Foundation
+
+### Added
+- Canonical architecture.
+- Three specialized brains.
+- AI Director orchestration model.
+- Initial specialist agents.
+- Skills and tools layers.
+- Memory and knowledge separation.
+- Workflow layer.
+- Evaluation layer.
+- Human-in-the-loop policy.
+- Portability policy.
+- Continuity Pack.
+- Repository structure.
+- Continuity test specification.
+- Universal cross-AI/session/provider handoff protocol in `AI-HANDOFF.md`.
+
+### GitHub synchronization
+- Verified repository read/write access.
+- Preserved the original `Prueba` access-test file.
+- Synchronized the canonical v0.1 foundation into `main`.
+
+### Continuity validation
+- Executed the continuity test using an independent AI/session with repository artifacts.
+- Verified reconstruction of mission, version, phase, architecture, brains, AI Director, specialist agents, source of truth, continuity pack, human-in-the-loop principle, portability principle, current state, and next objective.
+- No substantive contradictions were detected.
+- Block 0.1 — Project Foundation validated and closed.
+
+### AI handoff protocol
+- Added `AI-HANDOFF.md` with start, work, decision, end/handoff, session-record, resume, and close protocols.
+- Updated `PROJECT-CONTEXT.md` so a new AI can identify the current objective without relying on the original conversation.
+
+### Next
+- Prepare inputs and cognitive architecture for Block 1 — CEO Brain.
