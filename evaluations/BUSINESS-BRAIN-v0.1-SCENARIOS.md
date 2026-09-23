@@ -244,18 +244,43 @@ A PASS requires the response to reason from the scenario facts rather than merel
 # Cross-brain scenarios
 
 ## X01 — CEO → Business
+**Required assertions:**
+- preserve CEO strategic objective, risk appetite and resource constraint;
+- translate them into customer/market hypotheses and evidence requirements;
+- define experiments without changing strategic authority.
+
 CEO provides strategic objective, risk appetite and resource constraint for a new market. Business Brain must translate these into customer/market hypotheses, evidence requirements and experiments without changing strategic authority.
 
 ## X02 — Business → CEO
+**Required assertions:**
+- provide market evidence, offer performance, economics, risks and opportunity cost;
+- frame strategic allocation as CEO responsibility;
+- keep Business Brain in the commercial evidence role.
+
 Business Brain presents market evidence, offer performance, economics, risks and opportunity cost for a strategic expansion. CEO Brain must own strategic allocation; Business Brain supplies commercial evidence.
 
 ## X03 — Business → AI Director
+**Required assertions:**
+- specify required research, customer analysis and sales capabilities;
+- define sequence, evidence, approvals and business success criteria;
+- do not change the business objective.
+
 Business Brain specifies a workflow requiring research, customer analysis and sales execution. AI Director must choose sequence, agents, tools and approval gates without changing the business objective.
 
 ## X04 — AI Director → Business
+**Required assertions:**
+- identify required business evidence;
+- classify decision class and success criteria;
+- return outputs suitable for downstream orchestration.
+
 AI Director routes a qualified business problem to Business Brain. Business Brain must define required evidence, decision class, success criteria and outputs.
 
 ## X05 — Business ↔ AI Architect
+**Required assertions:**
+- preserve customer and commercial requirements;
+- route technical feasibility, security and implementation to AI Architect;
+- keep provider constraints separate from business objectives.
+
 Business requirement needs automation. Business Brain defines customer/commercial requirements; AI Architect defines technical feasibility, security, implementation and provider constraints.
 
 ## Behavioral acceptance rule
