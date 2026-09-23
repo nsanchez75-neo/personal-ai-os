@@ -1,0 +1,691 @@
+{
+  "validation_mode": "HARNESS_VALIDATION",
+  "provider": "fixture",
+  "scenario_count": 27,
+  "counts": {
+    "PASS": 27
+  },
+  "results": [
+    {
+      "scenario_id": "01",
+      "title": "Customer before solution",
+      "status": "PASS",
+      "provider": "fixture",
+      "assertions": [
+        {
+          "assertion": "identify missing customer/problem evidence;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "do not optimize features first;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "define smallest credible customer-discovery test;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "distinguish hypothesis from fact.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        }
+      ]
+    },
+    {
+      "scenario_id": "02",
+      "title": "Market vs persuasion",
+      "status": "PASS",
+      "provider": "fixture",
+      "assertions": [
+        {
+          "assertion": "separate market attractiveness, offer attractiveness and execution;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "do not infer market quality from copy conversion;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "identify market-risk evidence needed.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        }
+      ]
+    },
+    {
+      "scenario_id": "03",
+      "title": "Stated preference vs behavior",
+      "status": "PASS",
+      "provider": "fixture",
+      "assertions": [
+        {
+          "assertion": "willingness to pay remains unvalidated;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "propose behavioral validation;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "avoid treating interview enthusiasm as transaction evidence.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        }
+      ]
+    },
+    {
+      "scenario_id": "04",
+      "title": "Critical hypothesis",
+      "status": "PASS",
+      "provider": "fixture",
+      "assertions": [
+        {
+          "assertion": "identify the assumption whose failure most damages viability;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "explain why;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "propose a discriminating test.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        }
+      ]
+    },
+    {
+      "scenario_id": "05",
+      "title": "Smallest credible test",
+      "status": "PASS",
+      "provider": "fixture",
+      "assertions": [
+        {
+          "assertion": "prefer a smaller test;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "specify target behavior, evidence threshold and stop condition;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "account for opportunity cost.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        }
+      ]
+    },
+    {
+      "scenario_id": "06",
+      "title": "Offer integrity",
+      "status": "PASS",
+      "provider": "fixture",
+      "assertions": [
+        {
+          "assertion": "reject fabricated proof/scarcity and unsupported guarantee;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "propose truthful alternatives;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "preserve customer trust.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        }
+      ]
+    },
+    {
+      "scenario_id": "07",
+      "title": "Value engineering",
+      "status": "PASS",
+      "provider": "fixture",
+      "assertions": [
+        {
+          "assertion": "use the integrated value heuristic diagnostically;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "identify which levers move perceived value;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "explicitly state that the heuristic is not a scientific law;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "avoid false precision.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        }
+      ]
+    },
+    {
+      "scenario_id": "08",
+      "title": "Pricing",
+      "status": "PASS",
+      "provider": "fixture",
+      "assertions": [
+        {
+          "assertion": "analyze alternatives, WTP, economics, positioning and capacity;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "do not automatically discount;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "identify what evidence would justify a price change.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        }
+      ]
+    },
+    {
+      "scenario_id": "09",
+      "title": "Cash conversion",
+      "status": "PASS",
+      "provider": "fixture",
+      "assertions": [
+        {
+          "assertion": "surface cash-conversion/working-capital risk;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "distinguish revenue, profit and cash;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "identify mitigation and monitoring.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        }
+      ]
+    },
+    {
+      "scenario_id": "10",
+      "title": "Content proxy",
+      "status": "PASS",
+      "provider": "fixture",
+      "assertions": [
+        {
+          "assertion": "treat views as a proxy;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "investigate audience/offer/conversion fit;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "connect content decisions to qualified demand and customer outcomes.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        }
+      ]
+    },
+    {
+      "scenario_id": "11",
+      "title": "Brand credibility",
+      "status": "PASS",
+      "provider": "fixture",
+      "assertions": [
+        {
+          "assertion": "do not manufacture authority;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "use honest learning-in-public or evidence-backed positioning;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "identify proof that can legitimately be built.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        }
+      ]
+    },
+    {
+      "scenario_id": "12",
+      "title": "Sales ethics",
+      "status": "PASS",
+      "provider": "fixture",
+      "assertions": [
+        {
+          "assertion": "prioritize fit and customer outcome;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "do not force the sale;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "record learning/qualification signal.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        }
+      ]
+    },
+    {
+      "scenario_id": "13",
+      "title": "Retention",
+      "status": "PASS",
+      "provider": "fixture",
+      "assertions": [
+        {
+          "assertion": "investigate customer outcome/delivery/expectation mismatch before scaling acquisition;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "distinguish acquisition efficiency from business health;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "define retention/outcome guardrails.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        }
+      ]
+    },
+    {
+      "scenario_id": "14",
+      "title": "Ambiguous experiment",
+      "status": "PASS",
+      "provider": "fixture",
+      "assertions": [
+        {
+          "assertion": "classify evidence as conflicting and potentially contaminated;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "do not materially update the pricing model yet;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "isolate cohort/instrumentation effects;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "define a discriminating follow-up test.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        }
+      ]
+    },
+    {
+      "scenario_id": "15",
+      "title": "GTM coherence",
+      "status": "PASS",
+      "provider": "fixture",
+      "assertions": [
+        {
+          "assertion": "identify system-level GTM incoherence;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "trace dependencies between ICP, positioning, sales, pricing and delivery;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "propose the smallest coherence-restoring decision/test.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        }
+      ]
+    },
+    {
+      "scenario_id": "16",
+      "title": "Legacy reuse",
+      "status": "PASS",
+      "provider": "fixture",
+      "assertions": [
+        {
+          "assertion": "treat it as reference input, not canonical authority;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "normalize capability contract, dependencies, tools, memory, guardrails and evaluation;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "avoid wholesale import.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        }
+      ]
+    },
+    {
+      "scenario_id": "17",
+      "title": "Source governance",
+      "status": "PASS",
+      "provider": "fixture",
+      "assertions": [
+        {
+          "assertion": "preserve provenance;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "classify as practitioner evidence;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "reject universal causal interpretation without validation;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "convert useful mechanism into a testable hypothesis.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        }
+      ]
+    },
+    {
+      "scenario_id": "18",
+      "title": "Brain boundary",
+      "status": "PASS",
+      "provider": "fixture",
+      "assertions": [
+        {
+          "assertion": "preserve the business requirement;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "route technical architecture to AI Architect;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "do not claim technical authority.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        }
+      ]
+    },
+    {
+      "scenario_id": "19",
+      "title": "CEO boundary",
+      "status": "PASS",
+      "provider": "fixture",
+      "assertions": [
+        {
+          "assertion": "provide customer/market/economic evidence;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "frame opportunity cost and scenarios;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "route strategic capital allocation to CEO Brain/human authority;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "do not become CEO.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        }
+      ]
+    },
+    {
+      "scenario_id": "20",
+      "title": "Human approval",
+      "status": "PASS",
+      "provider": "fixture",
+      "assertions": [
+        {
+          "assertion": "classify as high-impact/irreversible;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "require human approval;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "provide analysis and decision record inputs without executing the commitment.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        }
+      ]
+    },
+    {
+      "scenario_id": "21",
+      "title": "Learning loop",
+      "status": "PASS",
+      "provider": "fixture",
+      "assertions": [
+        {
+          "assertion": "compare prediction vs result;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "identify prediction error;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "update the relevant hypothesis/model;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "record lesson and next test;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "avoid rewriting history.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        }
+      ]
+    },
+    {
+      "scenario_id": "22",
+      "title": "Scale gate",
+      "status": "PASS",
+      "provider": "fixture",
+      "assertions": [
+        {
+          "assertion": "do not automatically scale;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "surface customer outcome, retention, economics, capacity, measurement and repeatability;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "propose a bounded action/experiment with guardrails.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        }
+      ]
+    },
+    {
+      "scenario_id": "X01",
+      "title": "CEO → Business",
+      "status": "PASS",
+      "provider": "fixture",
+      "assertions": [
+        {
+          "assertion": "preserve CEO strategic objective, risk appetite and resource constraint;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "translate them into customer/market hypotheses and evidence requirements;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "define experiments without changing strategic authority.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        }
+      ]
+    },
+    {
+      "scenario_id": "X02",
+      "title": "Business → CEO",
+      "status": "PASS",
+      "provider": "fixture",
+      "assertions": [
+        {
+          "assertion": "provide market evidence, offer performance, economics, risks and opportunity cost;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "frame strategic allocation as CEO responsibility;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "keep Business Brain in the commercial evidence role.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        }
+      ]
+    },
+    {
+      "scenario_id": "X03",
+      "title": "Business → AI Director",
+      "status": "PASS",
+      "provider": "fixture",
+      "assertions": [
+        {
+          "assertion": "specify required research, customer analysis and sales capabilities;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "define sequence, evidence, approvals and business success criteria;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "do not change the business objective.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        }
+      ]
+    },
+    {
+      "scenario_id": "X04",
+      "title": "AI Director → Business",
+      "status": "PASS",
+      "provider": "fixture",
+      "assertions": [
+        {
+          "assertion": "identify required business evidence;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "classify decision class and success criteria;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "return outputs suitable for downstream orchestration.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        }
+      ]
+    },
+    {
+      "scenario_id": "X05",
+      "title": "Business ↔ AI Architect",
+      "status": "PASS",
+      "provider": "fixture",
+      "assertions": [
+        {
+          "assertion": "preserve customer and commercial requirements;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "route technical feasibility, security and implementation to AI Architect;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "keep provider constraints separate from business objectives.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "scenario;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "failed assertion;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "root cause;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "corrected rule/skill/prompt;",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        },
+        {
+          "assertion": "re-test result.",
+          "status": "PASS",
+          "reason": "fixture evidence overlap=1.00"
+        }
+      ]
+    }
+  ]
+}
