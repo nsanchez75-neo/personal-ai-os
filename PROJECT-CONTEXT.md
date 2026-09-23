@@ -1,12 +1,12 @@
 # PROJECT CONTEXT
 
 **Version:** v0.1  
-**Phase:** Block 1 — CEO Brain **(v0.1 drafted)** / Business Brain source integration **(in progress)**  
-**Status:** Foundation synchronized to GitHub; continuity test passed; AI handoff protocol added; legacy project analyzed and mapped for reuse; CEO Brain v0.1 architecture, decision engine, research register, system prompt and evaluation suite drafted; two new user-provided business/content corpora analyzed and normalized into portable Business Brain skill/source inputs.
+**Phase:** Block 2 — Business Brain **(v0.1 architecture drafted)**  
+**Status:** Foundation synchronized; continuity validated; AI handoff protocol established; legacy project audited; CEO Brain v0.1 drafted; user-provided business/content corpora normalized; Business Brain v0.1 cognitive architecture, system prompt, decision/experiment engine, memory interface and evaluation suite drafted.
 
 ## Current state
 
-The canonical architecture and continuity protocol remain stable. CEO Brain v0.1 is architected as a decision and learning system. The latest uploaded corpora are treated as reference inputs and have been mapped into Business Brain capabilities rather than imported as personas or universal rules.
+The canonical three-brain architecture remains stable. Business Brain is now defined as the customer-value, offer, GTM, economics and commercial learning system. It remains separate from CEO Brain strategic authority, AI Director orchestration, and AI Architect technical authority.
 
 ## Completed
 
@@ -14,41 +14,39 @@ The canonical architecture and continuity protocol remain stable. CEO Brain v0.1
 - AI Director defined as orchestrator.
 - Initial specialist-agent set defined.
 - Skills/tools/memory/knowledge/workflow/evaluation layers defined.
-- Portability principle defined.
-- Human-in-the-loop principle defined.
-- GitHub selected and verified as source of truth.
-- Continuity Pack defined.
-- v0.1 foundation synchronized to GitHub.
-- Continuity test executed successfully with an independent AI/session.
-- AI-HANDOFF.md created as the universal cross-AI/session/provider handoff protocol.
+- Portability and human-in-the-loop principles defined.
+- GitHub selected as source of truth.
+- Continuity Pack and AI-HANDOFF.md established.
 - Legacy project audited and mapped for selective reuse.
-- CEO Brain v0.1 research, architecture, decision engine, system prompt and evaluation suite drafted.
-- Hormozi business corpus normalized into `knowledge/business/HORMOZI-SOURCE-INPUTS.md`.
-- Personal-brand/content corpus normalized into `knowledge/business/PERSONAL-BRAND-SOURCE-INPUTS.md`.
-- Business-model, sales, marketing and content skill contracts initialized from those source inputs.
+- CEO Brain v0.1 architecture, decision engine, system prompt and evaluation suite drafted.
+- Hormozi business corpus normalized into knowledge/business/HORMOZI-SOURCE-INPUTS.md.
+- Personal-brand/content corpus normalized into knowledge/business/PERSONAL-BRAND-SOURCE-INPUTS.md.
+- Business-model, sales, marketing and content skill contracts initialized.
+- External business-validation research integrated, especially hypothesis-driven testing, customer behavior evidence, value proposition testing, market research and GTM coherence.
+- Business Brain v0.1 architecture drafted.
+- Business Brain system prompt created.
+- Business Brain decision/experiment engine created.
+- Business Brain memory interface created.
+- Business Brain evaluation suite created.
 
 ## Current objective
 
-Design Block 2 — Business Brain using the approved three-brain architecture and the newly normalized business/content source inputs.
+Validate and refine Business Brain v0.1 against representative business scenarios and the legacy 54-skill/51-evaluation corpus before broader canonicalization.
 
 ## Next objective
 
-1. Audit existing legacy Business/GTM/marketing/sales mechanisms against the two new source inputs.
-2. Define Business Brain cognitive architecture and boundaries.
-3. Define its offer, customer, growth, sales, marketing, pricing and experimentation decision loops.
-4. Connect Business Brain interfaces with CEO Brain and AI Director.
-5. Define Business Brain memory requirements and evaluation suite.
-6. Implement first Business Brain artifacts after architecture approval.
+1. Map the highest-value legacy Business/GTM/marketing/sales skills to the new Business Brain architecture.
+2. Normalize only non-duplicative skills into canonical contracts.
+3. Execute the Business Brain evaluation suite against representative scenarios.
+4. Add failures as regression cases.
+5. Define Business Brain ↔ CEO Brain ↔ AI Director workflow contracts.
+6. Close Block 2 only after evaluation and interface validation.
 
 ## Source governance
 
-User-provided corpora are reference material. Their frameworks are reusable mechanisms, not canonical truth. Claims about outcomes, universal thresholds, pricing, margins, follower counts or causal effects require validation before being promoted to durable project rules.
+User-provided corpora are reference material. Their frameworks are reusable mechanisms, not canonical truth. Claims about outcomes, universal thresholds, pricing, margins, follower counts or causal effects require validation before promotion.
 
-## Legacy source status
-
-The uploaded legacy project was fully inventoried and mapped into the current architecture. Canonical audit: `knowledge/legacy/PROJECT-IMPORT-AUDIT.md`. Reuse map: `knowledge/legacy/REUSE-MAP.md`. CEO-specific candidate mechanisms: `brains/ceo/LEGACY-SOURCE-INPUTS.md`. Legacy evaluation pattern: `evaluations/LEGACY-EVALUATION-INPUTS.md`.
-
-The legacy archive is reference material, not a competing source of truth. Duplicate trees and provider-specific implementations are not imported wholesale.
+External research used for the architecture is cited in brains/business/BUSINESS-BRAIN.md; it informs methods but does not override project decisions.
 
 ## Protected constraints
 
@@ -58,4 +56,4 @@ The legacy archive is reference material, not a competing source of truth. Dupli
 - Do not make irreversible external actions without approval.
 - Do not alter approved architecture without recording a decision.
 - Keep portable core intelligence separate from provider-specific implementation.
-- Human owner retains authority over important strategic, financial, legal, security, architectural, and irreversible decisions.
+- Human owner retains authority over important strategic, financial, legal, security, architectural and irreversible decisions.
