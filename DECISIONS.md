@@ -49,3 +49,9 @@ This file is the durable institutional memory of architectural decisions.
 **Status:** APPROVED  
 **Decision:** Evolve from simple to modular to testable to reusable to scalable.  
 **Reason:** Prevent premature infrastructure complexity.
+
+
+## D-009 — Legacy project as reference input, not canonical authority
+**Status:** APPROVED  
+**Decision:** The uploaded legacy project may be reused selectively, but canonical authority remains the current PERSONAL AI OS repository and its approved architecture/decision records.  
+**Reason:** Preserves valuable prior work without allowing legacy hierarchy, provider-specific implementation, duplication, or unsupported claims to override the approved portable architecture.
