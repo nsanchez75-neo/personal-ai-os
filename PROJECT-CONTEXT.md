@@ -1,8 +1,8 @@
 # PROJECT CONTEXT
 
 **Version:** v0.1  
-**Phase:** Block 2 — Business Brain **(v0.1 architecture drafted)**  
-**Status:** Foundation synchronized; continuity validated; AI handoff protocol established; legacy project audited; CEO Brain v0.1 drafted; user-provided business/content corpora normalized; Business Brain v0.1 architecture drafted and structurally validated with a conditional pass.
+**Phase:** Block 2 — Business Brain **(v0.1 scenario validation)**  
+**Status:** Foundation synchronized; continuity validated; AI handoff protocol established; legacy project audited; CEO Brain v0.1 drafted; user-provided business/content corpora normalized; Business Brain v0.1 architecture conditionally passed; scenario suite and ambiguity protocol added; pre-runtime scenario conformance passed; runtime validation remains open.
 
 ## Current state
 
@@ -31,17 +31,17 @@ The canonical three-brain architecture remains stable. Business Brain is now def
 
 ## Current objective
 
-Run behavioral/scenario validation of Business Brain v0.1 after the architecture-level conditional pass.
+Instantiate and run a minimal provider-neutral Business Brain evaluator against the 22 scenarios and five cross-brain scenarios.
 
 ## Next objective
 
-1. Add and run representative behavioral scenarios for the 22 acceptance tests.
-2. Implement the ambiguous-experiment decision protocol.
-3. Test scaling decisions under conflicting economics/customer-outcome/capacity conditions.
-4. Add failures as regression cases.
-5. Validate Business Brain ↔ CEO Brain ↔ AI Director workflow contracts end-to-end.
-6. Map and normalize only the highest-value non-duplicative legacy skills after behavioral validation.
-7. Close Block 2 only after scenario and interface validation.
+1. Implement a minimal provider-neutral runtime/evaluator.
+2. Execute the 22 acceptance scenarios and five cross-brain scenarios.
+3. Score assertion-level results and capture outputs.
+4. Convert failures into regression cases and correct the relevant prompt/skill/engine.
+5. Re-run regressions after each correction.
+6. Map and normalize only the highest-value non-duplicative legacy skills after runtime validation.
+7. Close Block 2 only after reproducible scenario and interface validation.
 
 ## Source governance
 
