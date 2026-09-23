@@ -2,7 +2,7 @@
 
 **Version:** v0.1  
 **Phase:** Block 0.1 — Project Foundation **(COMPLETED)**  
-**Status:** Foundation synchronized to GitHub; continuity test passed; AI handoff protocol added; legacy project analyzed and mapped for reuse.
+**Status:** Foundation synchronized to GitHub; continuity test passed; AI handoff protocol added; legacy project analyzed and mapped for reuse; CEO Brain v0.1 architecture, decision engine, research register, system prompt and evaluation suite drafted.
 
 ## Current state
 
