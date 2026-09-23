@@ -16,6 +16,7 @@
 - Continuity Pack.
 - Repository structure.
 - Continuity test specification.
+- Universal cross-AI/session/provider handoff protocol in `AI-HANDOFF.md`.
 
 ### GitHub synchronization
 - Verified repository read/write access.
@@ -28,5 +29,9 @@
 - No substantive contradictions were detected.
 - Block 0.1 — Project Foundation validated and closed.
 
+### AI handoff protocol
+- Added `AI-HANDOFF.md` with start, work, decision, end/handoff, session-record, resume, and close protocols.
+- Updated `PROJECT-CONTEXT.md` so a new AI can identify the current objective without relying on the original conversation.
+
 ### Next
-- Begin Block 1 — CEO Brain.
+- Prepare inputs and cognitive architecture for Block 1 — CEO Brain.
