@@ -109,71 +109,65 @@ The handoff is not complete until another AI can determine the next action witho
 
 ## Session Handoff Record
 
-Keep only the latest meaningful handoff here; historical evolution belongs in CHANGELOG.md.
-
 ```yaml
-session:
-  date: 2026-09-22
-  ai: GPT-5.6 Luna / current execution context
-  provider: OpenAI
-  project_version: v0.1
-
-state:
-  phase: Block 2 — Business Brain v0.1 scenario validation
-  status: Scenario suite and ambiguity protocol completed; pre-runtime conformance PASS; runtime evaluator still required.
-
+session: 2026-09-22
+ai: GPT-5.6 Luna
+provider: OpenAI
+project_version: v0.1
+phase: Block 2 — Business Brain runtime validation
+state: harness validation complete; real-model validation pending
 completed:
-  - 22 acceptance scenarios created and reviewed for pre-runtime conformance
-  - Five cross-brain workflow scenarios created
-  - Ambiguous experiment protocol integrated into Business Brain prompt and decision engine
-  - Scenario validation report created
-  - 
-
+  - provider-neutral runtime package created under runtime/business_brain/
+  - ModelAdapter contract created
+  - deterministic fixture adapter created
+  - 22 Business scenarios + 5 cross-brain scenarios made executable (27 total)
+  - harness results recorded: 27/27 PASS
+  - runtime harness report created
+  - CI workflow definition created; no workflow run available from connected Actions endpoint
 in_progress:
-  - Implement minimal provider-neutral Business Brain runtime/evaluator
-  - 
+  - first real provider adapter and LLM behavior validation
+  - assertion-level failure/regression loop
+  - Block 2 closure decision
 
 decisions:
-  - 
-
+  - harness PASS is not LLM behavior PASS
+  - legacy skills remain blocked until real-model validation
 files_created:
-  - 
-
+  - runtime/business_brain/__init__.py
+  - runtime/business_brain/models.py
+  - runtime/business_brain/adapters/__init__.py
+  - runtime/business_brain/adapters/base.py
+  - runtime/business_brain/adapters/fixture.py
+  - runtime/business_brain/evaluator.py
+  - runtime/business_brain/runner.py
+  - runtime/business_brain/README.md
+  - evaluations/results/BUSINESS-BRAIN-v0.1-HARNESS-RESULTS.json
+  - evaluations/BUSINESS-BRAIN-v0.1-RUNTIME-HARNESS-REPORT.md
+  - .github/workflows/business-brain-runtime.yml
 files_modified:
-  - 
-
+  - evaluations/BUSINESS-BRAIN-v0.1-SCENARIOS.md
+  - PROJECT-CONTEXT.md
+  - CHANGELOG.md
 open_questions:
-  - 
-
+  - Which real provider should be the first adapter for behavioral validation?
 blockers:
-  - 
-
-next_action: Implement and execute the provider-neutral evaluator against the 22 scenarios plus five cross-brain scenarios; record assertion-level results and regressions.
-
+  - No real-model runtime execution has been performed yet.
+next_action: Implement and execute the first real provider adapter against all 27 scenarios, then record assertion-level behavioral results and regressions.
 validation:
-  - 22/22 PASS for pre-runtime scenario/specification conformance
-  - Runtime/model-behavior validation not yet executed
-  - Block 2 remains open
-
+  harness_validation: 27/27 PASS
+  llm_behavior_validation: NOT_RUN
 handoff_ready: true
 ```
 
 ## Universal Resume Prompt
 
-A new AI may be given:
-
-"Continue PERSONAL AI OS from the repository source of truth. Read BOOTSTRAP.md, PROJECT-CONTEXT.md, DECISIONS.md, MASTER-BLUEPRINT.md, CHANGELOG.md, and AI-HANDOFF.md. Reconstruct the current state without relying on the original conversation. Do not invent decisions or progress. Identify the exact next action from PROJECT-CONTEXT.md and continue only within the approved architecture. At the end, execute the END / HANDOFF PROTOCOL and leave GitHub ready for the next AI."
+Continue PERSONAL AI OS from repository source of truth. Read BOOTSTRAP.md, PROJECT-CONTEXT.md, DECISIONS.md, MASTER-BLUEPRINT.md, CHANGELOG.md, and AI-HANDOFF.md. Reconstruct current state without original conversation. Do not invent decisions/progress. Identify exact next action from PROJECT-CONTEXT.md and continue only within approved architecture. Preserve the distinction between HARNESS_VALIDATION and LLM_BEHAVIOR_VALIDATION. Do not add legacy skills until real-model behavioral validation is complete. At end execute END/HANDOFF and leave GitHub ready.
 
 ## Universal Close Prompt
 
-At the end of a session:
-
-"Prepare PERSONAL AI OS for handoff. Execute the END / HANDOFF PROTOCOL. Update the canonical project records, record durable decisions, update the Session Handoff Record, verify consistency, commit to GitHub, and report the exact next action. Do not claim completion without verification."
+Prepare PERSONAL AI OS for handoff. Execute END/HANDOFF. Update canonical records, record decisions, update Session Handoff Record, verify consistency, commit to GitHub, report exact next action. Do not claim LLM behavior validation from fixture/harness results.
 
 ## Human Authority
 
-The human owner remains the final authority for important business, strategic, financial, legal, security, architectural, and irreversible decisions.
-
-Principle:
-
-**Automate the reversible. Approve the irreversible.**
+Human owner final authority for important business, strategic, financial, legal, security, architectural, and irreversible decisions.
+“Automate the reversible. Approve the irreversible.”
