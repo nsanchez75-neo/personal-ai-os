@@ -50,8 +50,12 @@ This file is the durable institutional memory of architectural decisions.
 **Decision:** Evolve from simple to modular to testable to reusable to scalable.  
 **Reason:** Prevent premature infrastructure complexity.
 
-
 ## D-009 — Legacy project as reference input, not canonical authority
 **Status:** APPROVED  
 **Decision:** The uploaded legacy project may be reused selectively, but canonical authority remains the current PERSONAL AI OS repository and its approved architecture/decision records.  
 **Reason:** Preserves valuable prior work without allowing legacy hierarchy, provider-specific implementation, duplication, or unsupported claims to override the approved portable architecture.
+
+## D-010 — User-provided business frameworks as reference mechanisms
+**Status:** APPROVED  
+**Decision:** User-provided business, sales, marketing, personal-brand and content frameworks may be normalized into the relevant Business Brain skills and knowledge layer, but do not become universal project rules without validation. 
+**Reason:** Preserves high-value reusable mechanisms while preventing source-specific claims, thresholds, formulas or tactics from becoming unverified canonical doctrine.
