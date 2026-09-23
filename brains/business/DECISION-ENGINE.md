@@ -63,9 +63,10 @@ model_updates:
 9. Design the smallest credible experiment.
 10. Define evidence threshold before running it.
 11. Run and record the test.
-12. Compare result with prediction.
-13. Decide: scale, iterate, stop, defer or pivot.
-14. Update the business model only when evidence justifies it.
+12. Classify evidence with the Ambiguous Experiment Protocol when evidence is incomplete, conflicting or contaminated.
+13. Compare result with prediction.
+14. Decide: scale, iterate, stop, defer or pivot.
+15. Update the business model only when evidence justifies it.
 
 ## Hypothesis quality
 
