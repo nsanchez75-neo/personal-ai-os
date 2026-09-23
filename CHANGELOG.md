@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 2026-09-22 — Business Brain v0.1 architecture validation
+- Validated the Business Brain architecture against all 22 acceptance requirements.
+- Result: 19 PASS, 3 PARTIAL, 0 FAIL at specification/architecture level.
+- Added `evaluations/BUSINESS-BRAIN-v0.1-VALIDATION-REPORT.md`.
+- Identified two main remaining validation gaps: ambiguous experiment decisions and contextual scaling decisions; the third partial is the need to execute the tests behaviorally rather than infer passing from document coverage.
+- Strengthened the evaluation suite to distinguish architectural coverage from runtime behavioral validation.
+- Business Brain v0.1 is conditionally passed for architecture validation but Block 2 remains open until scenario and cross-brain behavioral tests pass.
+
+
 ## 2026-09-22 — Business Brain v0.1 architecture
 - Researched business-model validation, customer discovery, market research, value proposition testing and GTM coherence using current external sources including SBA, Strategyzer and Harvard Business Review.
 - Synthesized those inputs with the legacy project reuse map, 54-skill catalog, 51 evaluation patterns, and the two user-provided business/content corpora.
