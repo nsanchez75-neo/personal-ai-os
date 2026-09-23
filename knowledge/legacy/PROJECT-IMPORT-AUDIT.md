@@ -46,7 +46,7 @@ Primary reusable library:
 - 7 business/technical agents
 - orchestrator prompt
 - marketing skill index
-- 51 marketing skills
+- 54 marketing skills
 - 51 skill evaluation files
 - reference libraries and templates
 
