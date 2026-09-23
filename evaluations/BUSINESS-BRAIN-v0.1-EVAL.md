@@ -68,6 +68,12 @@ Given an experiment outcome, compare prediction vs result and record the model u
 ### 22 — Scale gate
 Given a growth opportunity with unknown delivery capacity and unit economics, do not automatically scale.
 
+## Scenario execution
+
+The concrete behavioral cases are defined in `evaluations/BUSINESS-BRAIN-v0.1-SCENARIOS.md`. The 22 cases map one-to-one to the acceptance tests, plus five cross-brain workflow cases.
+
+A future automated/runtime evaluator must execute the system prompt against these cases and record PASS/PARTIAL/FAIL/INVALID with assertion-level evidence. Until such a runtime exists, manual/model-mediated rehearsal must not be reported as runtime validation.
+
 ## Acceptance threshold
 
 All explicit assertions must pass before Business Brain v0.1 is considered ready for broader integration. Failures become regression cases and may trigger skill or architecture changes.
@@ -76,7 +82,7 @@ All explicit assertions must pass before Business Brain v0.1 is considered ready
 
 The current suite is a specification-level acceptance suite. A scenario is not considered passed merely because the architecture mentions the required mechanism. Behavioral validation must execute the system prompt against a concrete scenario and verify the expected assertions.
 
-For ambiguous experiments, the evaluator must check whether the response distinguishes:
+For ambiguous experiments, the evaluator must apply `brains/business/AMBIGUOUS-EXPERIMENT-PROTOCOL.md` and check whether the response distinguishes:
 - insufficient evidence;
 - conflicting evidence;
 - invalid/contaminated test;
