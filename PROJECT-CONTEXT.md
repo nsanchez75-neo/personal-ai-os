@@ -1,12 +1,12 @@
 # PROJECT CONTEXT
 
 **Version:** v0.1  
-**Phase:** Block 0.1 — Project Foundation  
-**Status:** Foundation synchronized to GitHub; continuity test pending.
+**Phase:** Block 0.1 — Project Foundation **(COMPLETED)**  
+**Status:** Foundation synchronized to GitHub; continuity test passed.
 
 ## Current state
 
-The architecture, continuity protocol, and v0.1 foundation have been prepared and synchronized to the canonical GitHub repository.
+The architecture, continuity protocol, and v0.1 foundation are prepared and synchronized to the canonical GitHub repository. A fresh AI, using only the repository artifacts and without the original conversation, successfully reconstructed the project state, architecture, decisions, constraints, and next objective.
 
 ## Completed
 
@@ -19,16 +19,15 @@ The architecture, continuity protocol, and v0.1 foundation have been prepared an
 - GitHub selected and verified as source of truth.
 - Continuity Pack defined.
 - v0.1 foundation synchronized to GitHub.
+- Continuity test executed successfully with an independent AI/session.
 
 ## Current objective
 
-Run the continuity test from the repository, verify that a fresh AI can reconstruct the system without the original conversation, then close Block 0.1.
+Close Block 0.1 and preserve the validated continuity state in the project records.
 
 ## Next objective
 
-1. Run the continuity test.
-2. Close Block 0.1.
-3. Begin Block 1 — CEO Brain.
+Begin Block 1 — CEO Brain.
 
 ## Protected constraints
 

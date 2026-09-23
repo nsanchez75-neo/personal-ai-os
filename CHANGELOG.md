@@ -22,7 +22,11 @@
 - Preserved the original `Prueba` access-test file.
 - Synchronized the canonical v0.1 foundation into `main`.
 
+### Continuity validation
+- Executed the continuity test using an independent AI/session with repository artifacts.
+- Verified reconstruction of mission, version, phase, architecture, brains, AI Director, specialist agents, source of truth, continuity pack, human-in-the-loop principle, portability principle, current state, and next objective.
+- No substantive contradictions were detected.
+- Block 0.1 — Project Foundation validated and closed.
+
 ### Next
-- Run the continuity test.
-- Close Block 0.1.
 - Begin Block 1 — CEO Brain.
