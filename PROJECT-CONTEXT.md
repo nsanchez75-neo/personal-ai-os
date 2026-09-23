@@ -1,12 +1,12 @@
 # PROJECT CONTEXT
 
 **Version:** v0.1  
-**Phase:** Block 0.1 — Project Foundation **(COMPLETED)**  
-**Status:** Foundation synchronized to GitHub; continuity test passed; AI handoff protocol added; legacy project analyzed and mapped for reuse; CEO Brain v0.1 architecture, decision engine, research register, system prompt and evaluation suite drafted.
+**Phase:** Block 1 — CEO Brain **(v0.1 drafted)** / Business Brain source integration **(in progress)**  
+**Status:** Foundation synchronized to GitHub; continuity test passed; AI handoff protocol added; legacy project analyzed and mapped for reuse; CEO Brain v0.1 architecture, decision engine, research register, system prompt and evaluation suite drafted; two new user-provided business/content corpora analyzed and normalized into portable Business Brain skill/source inputs.
 
 ## Current state
 
-The architecture, continuity protocol, and v0.1 foundation are prepared and synchronized to the canonical GitHub repository. A fresh AI, using only repository artifacts and without the original conversation, successfully reconstructed the project state, architecture, decisions, constraints, and next objective. The universal AI handoff protocol is now documented in AI-HANDOFF.md.
+The canonical architecture and continuity protocol remain stable. CEO Brain v0.1 is architected as a decision and learning system. The latest uploaded corpora are treated as reference inputs and have been mapped into Business Brain capabilities rather than imported as personas or universal rules.
 
 ## Completed
 
@@ -21,19 +21,28 @@ The architecture, continuity protocol, and v0.1 foundation are prepared and sync
 - v0.1 foundation synchronized to GitHub.
 - Continuity test executed successfully with an independent AI/session.
 - AI-HANDOFF.md created as the universal cross-AI/session/provider handoff protocol.
+- Legacy project audited and mapped for selective reuse.
+- CEO Brain v0.1 research, architecture, decision engine, system prompt and evaluation suite drafted.
+- Hormozi business corpus normalized into `knowledge/business/HORMOZI-SOURCE-INPUTS.md`.
+- Personal-brand/content corpus normalized into `knowledge/business/PERSONAL-BRAND-SOURCE-INPUTS.md`.
+- Business-model, sales, marketing and content skill contracts initialized from those source inputs.
 
 ## Current objective
 
-Use the completed legacy-project audit plus validated external leadership research to design Block 1 — CEO Brain.
+Design Block 2 — Business Brain using the approved three-brain architecture and the newly normalized business/content source inputs.
 
 ## Next objective
 
-Begin Block 1 — CEO Brain:
-1. Research documented CEO/leadership decision principles as references.
-2. Synthesize legacy candidate mechanisms with primary/current sources.
-3. Define CEO Brain cognitive architecture.
-4. Define its decision engine, boundaries, interfaces, memory requirements, and evaluation criteria.
-5. Implement the first CEO Brain artifacts only after the architecture is approved.
+1. Audit existing legacy Business/GTM/marketing/sales mechanisms against the two new source inputs.
+2. Define Business Brain cognitive architecture and boundaries.
+3. Define its offer, customer, growth, sales, marketing, pricing and experimentation decision loops.
+4. Connect Business Brain interfaces with CEO Brain and AI Director.
+5. Define Business Brain memory requirements and evaluation suite.
+6. Implement first Business Brain artifacts after architecture approval.
+
+## Source governance
+
+User-provided corpora are reference material. Their frameworks are reusable mechanisms, not canonical truth. Claims about outcomes, universal thresholds, pricing, margins, follower counts or causal effects require validation before being promoted to durable project rules.
 
 ## Legacy source status
 
