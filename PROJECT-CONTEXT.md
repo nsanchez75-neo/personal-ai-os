@@ -31,17 +31,17 @@ The canonical three-brain architecture remains stable. Business Brain is now def
 
 ## Current objective
 
-Instantiate and run a minimal provider-neutral Business Brain evaluator against the 22 scenarios and five cross-brain scenarios.
+Advance from harness validation to real-model provider-neutral LLM behavior validation for Business Brain v0.1.
 
 ## Next objective
 
-1. Implement a minimal provider-neutral runtime/evaluator.
-2. Execute the 22 acceptance scenarios and five cross-brain scenarios.
-3. Score assertion-level results and capture outputs.
-4. Convert failures into regression cases and correct the relevant prompt/skill/engine.
-5. Re-run regressions after each correction.
-6. Map and normalize only the highest-value non-duplicative legacy skills after runtime validation.
-7. Close Block 2 only after reproducible scenario and interface validation.
+1. Add the first real provider adapter behind the provider-neutral ModelAdapter contract.
+2. Execute all 22 acceptance scenarios and five cross-brain scenarios against a real model.
+3. Capture raw outputs, metadata and assertion-level scores.
+4. Convert material failures into regression cases and correct the smallest responsible layer.
+5. Re-run regressions and verify no material regressions.
+6. Only after real-model behavioral validation, map and normalize the highest-value non-duplicative legacy skills.
+7. Close Block 2 only after reproducible behavioral and interface validation.
 
 ## Source governance
 
