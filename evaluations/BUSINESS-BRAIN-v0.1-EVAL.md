@@ -71,3 +71,17 @@ Given a growth opportunity with unknown delivery capacity and unit economics, do
 ## Acceptance threshold
 
 All explicit assertions must pass before Business Brain v0.1 is considered ready for broader integration. Failures become regression cases and may trigger skill or architecture changes.
+
+## Validation note
+
+The current suite is a specification-level acceptance suite. A scenario is not considered passed merely because the architecture mentions the required mechanism. Behavioral validation must execute the system prompt against a concrete scenario and verify the expected assertions.
+
+For ambiguous experiments, the evaluator must check whether the response distinguishes:
+- insufficient evidence;
+- conflicting evidence;
+- invalid/contaminated test;
+- weak support;
+- strong support;
+- disconfirming evidence.
+
+For scaling decisions, the evaluator must check whether the response connects customer outcomes, retention, unit economics, delivery capacity, measurement reliability and repeatability instead of applying a universal numerical threshold.
