@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 2026-09-22 — CEO Brain v0.1
+- Completed external leadership research using primary/current sources from Amazon/AWS, Berkshire Hathaway, Alibaba, Microsoft, Intel and OpenAI.
+- Integrated validated mechanisms with the legacy-project inputs.
+- Created `brains/ceo/CEO-BRAIN.md`.
+- Created `brains/ceo/DECISION-ENGINE.md`.
+- Created `brains/ceo/CEO-BRAIN-SYSTEM-PROMPT.md`.
+- Created `brains/ceo/RESEARCH-REGISTER.md`.
+- Created `evaluations/CEO-BRAIN-v0.1-EVAL.md`.
+- Added closed-loop learning, prediction calibration, anti-bias controls, decision classification, capital allocation, risk governance, human-approval boundaries and cross-brain interfaces.
+
+# CHANGELOG
+
 ## 2026-09-22 — Legacy Project Import Audit
 - Completed full structural/content audit of uploaded `ai_.zip`.
 - Mapped legacy agents, skills, evaluation suites, workflows, knowledge assets, and provider-specific automation to the canonical PERSONAL AI OS architecture.
