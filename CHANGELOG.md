@@ -51,3 +51,17 @@
 
 ## v0.1 — Foundation
 - Canonical architecture, three brains, AI Director, specialist agents, skills/tools, memory/knowledge separation, workflows, evaluation, HITL, portability, continuity pack and repository structure established.
+
+
+## 2026-09-22 — Business Brain provider-neutral runtime harness
+
+- Added minimal provider-neutral runtime under `runtime/business_brain/`.
+- Added adapter contract plus deterministic fixture adapter.
+- Added machine-readable harness results at `evaluations/results/BUSINESS-BRAIN-v0.1-HARNESS-RESULTS.json`.
+- Added CI workflow definition at `.github/workflows/business-brain-runtime.yml`.
+- Expanded cross-brain scenarios with explicit assertions so the suite is 27 executable scenarios.
+- Harness contract execution: 27/27 PASS.
+- Explicitly classified this result as HARNESS_VALIDATION, not LLM behavior validation.
+- GitHub Actions endpoint returned no available workflow run at validation time, so no CI execution is claimed.
+- Added runtime harness validation report.
+- Block 2 remains OPEN; legacy skill incorporation remains blocked until real-model behavioral validation.
