@@ -31,6 +31,10 @@ Before continuing substantive work, read:
 4. MASTER-BLUEPRINT.md
 5. CHANGELOG.md
 6. AI-HANDOFF.md
+7. memory/MODEL-CONTEXT.md
+8. memory/SESSION-CONTEXT.md
+9. memory/USER-PREFERENCES.md
+10. memory/LEARNINGS.md
 
 Then read only the specialized files required for the current objective.
 
@@ -110,58 +114,51 @@ The handoff is not complete until another AI can determine the next action witho
 ## Session Handoff Record
 
 ```yaml
-session: 2026-09-22
+session: 2026-09-24
 ai: GPT-5.6 Luna
 provider: OpenAI
 project_version: v0.1
-phase: Block 2 — Business Brain runtime validation
-state: harness validation complete; real-model validation pending
+phase: Block 2 — Business Brain real-model behavioral validation
+state: Qwen3 8B validation in progress
 completed:
-  - provider-neutral runtime package created under runtime/business_brain/
-  - ModelAdapter contract created
-  - deterministic fixture adapter created
-  - 22 Business scenarios + 5 cross-brain scenarios made executable (27 total)
-  - harness results recorded: 27/27 PASS
-  - runtime harness report created
-  - CI workflow definition created; no workflow run available from connected Actions endpoint
+  - provider-neutral runtime harness created and validated: 27/27 PASS
+  - portable project memory/context layer created under memory/
+  - MODEL-CONTEXT, SESSION-CONTEXT, USER-PREFERENCES and LEARNINGS established
+  - D-012 recorded as approved
+  - Qwen3 8B T01 and T02 evaluated as PARTIAL PASS
 in_progress:
-  - first real provider adapter and LLM behavior validation
-  - assertion-level failure/regression loop
+  - Qwen3 8B T03 execution by user
+  - assertion-level behavioral evaluation and regression loop
   - Block 2 closure decision
-
 decisions:
   - harness PASS is not LLM behavior PASS
   - legacy skills remain blocked until real-model validation
+  - isolated model observations remain provisional until replicated
+  - project memory/context is portable and does not override DECISIONS.md
 files_created:
-  - runtime/business_brain/__init__.py
-  - runtime/business_brain/models.py
-  - runtime/business_brain/adapters/__init__.py
-  - runtime/business_brain/adapters/base.py
-  - runtime/business_brain/adapters/fixture.py
-  - runtime/business_brain/evaluator.py
-  - runtime/business_brain/runner.py
-  - runtime/business_brain/README.md
-  - evaluations/results/BUSINESS-BRAIN-v0.1-HARNESS-RESULTS.json
-  - evaluations/BUSINESS-BRAIN-v0.1-RUNTIME-HARNESS-REPORT.md
-  - .github/workflows/business-brain-runtime.yml
+  - memory/MODEL-CONTEXT.md
+  - memory/SESSION-CONTEXT.md
+  - memory/USER-PREFERENCES.md
+  - memory/LEARNINGS.md
 files_modified:
-  - evaluations/BUSINESS-BRAIN-v0.1-SCENARIOS.md
   - PROJECT-CONTEXT.md
+  - DECISIONS.md
   - CHANGELOG.md
 open_questions:
-  - Which real provider should be the first adapter for behavioral validation?
+  - How will Qwen3 8B perform on T03-T06?
+  - Which observed failure modes replicate across scenarios/models?
 blockers:
-  - No real-model runtime execution has been performed yet.
-next_action: Implement and execute the first real provider adapter against all 27 scenarios, then record assertion-level behavioral results and regressions.
+  - No completed real-model battery yet.
+next_action: Receive the complete Qwen3 8B T03 output, evaluate it against T01/T02, and do not modify canonical Business Brain behavior from one isolated result.
 validation:
   harness_validation: 27/27 PASS
-  llm_behavior_validation: NOT_RUN
+  llm_behavior_validation: IN_PROGRESS
 handoff_ready: true
 ```
 
 ## Universal Resume Prompt
 
-Continue PERSONAL AI OS from repository source of truth. Read BOOTSTRAP.md, PROJECT-CONTEXT.md, DECISIONS.md, MASTER-BLUEPRINT.md, CHANGELOG.md, and AI-HANDOFF.md. Reconstruct current state without original conversation. Do not invent decisions/progress. Identify exact next action from PROJECT-CONTEXT.md and continue only within approved architecture. Preserve the distinction between HARNESS_VALIDATION and LLM_BEHAVIOR_VALIDATION. Do not add legacy skills until real-model behavioral validation is complete. At end execute END/HANDOFF and leave GitHub ready.
+Continue PERSONAL AI OS from repository source of truth. Read BOOTSTRAP.md, PROJECT-CONTEXT.md, DECISIONS.md, MASTER-BLUEPRINT.md, CHANGELOG.md, AI-HANDOFF.md, and the memory context files. Reconstruct current state without original conversation. Do not invent decisions/progress. Identify exact next action from PROJECT-CONTEXT.md and SESSION-CONTEXT.md. Preserve the distinction between HARNESS_VALIDATION and LLM_BEHAVIOR_VALIDATION. Do not add legacy skills until real-model behavioral validation is complete. Treat LEARNINGS.md as provisional unless promoted through evidence and decision records.
 
 ## Universal Close Prompt
 
