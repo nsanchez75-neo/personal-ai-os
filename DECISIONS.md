@@ -55,3 +55,7 @@ This file is the durable institutional memory of architectural decisions.
 **Status:** APPROVED  
 **Decision:** Business Brain owns customer intelligence, market/offer design, pricing, GTM, lifecycle, commercial economics and experimentation, while CEO Brain retains strategic authority, AI Director retains orchestration, and AI Architect retains technical authority.
 **Reason:** Prevents overlap between brains and makes the Business Brain operationally useful without turning it into a second CEO or technical architect.
+## D-012 — Portable project memory/context layer
+**Status:** APPROVED  
+**Decision:** Maintain a provider-neutral project memory/context layer under memory/ with separate MODEL-CONTEXT.md, SESSION-CONTEXT.md, USER-PREFERENCES.md and LEARNINGS.md. These files support continuity across AI models and sessions but do not override the canonical authority hierarchy; DECISIONS.md remains the durable authority for architectural decisions.
+**Reason:** Project continuity must remain auditable, versionable and available to any provider, rather than depending exclusively on provider-native memory.
