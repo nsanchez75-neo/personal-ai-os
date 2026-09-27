@@ -1,0 +1,44 @@
+model:
+  id: qwen3-8b
+  provider: ollama
+  endpoint: http://localhost:11434
+  model_name: qwen3:8b
+
+runtime:
+  thinking: true
+  temperature: 0.6
+  context_window: 40960
+
+capabilities:
+  reasoning: observed
+  tools: observed
+  structured_output: partial
+  portability: adapter-dependent
+
+qualification:
+  status: CONDITIONAL
+  battery: T01-T18
+  evidence_basis: observed tests, not a universal capability claim
+
+observed_risks:
+  - unsupported_numeric_assumption
+  - declaration_behavior_confusion
+  - information_value_prioritization
+  - internal_consistency
+  - hypothesis_experiment_mismatch
+  - self_audit_failure
+  - self_evaluation_misattribution
+  - epistemic_overcommitment
+  - repair_nonrepair
+  - negation_reversal
+
+observed_strengths:
+  - fact_assumption_unknown_separation
+  - contextual_evidence_reasoning
+  - conditional_prioritization
+  - evidence_vs_inference_awareness
+
+notes:
+  - "T10 showed conditional prioritization can work when uncertainty is explicitly structured."
+  - "T17 improved trace-based attribution relative to T16."
+  - "T18 exposed negation reversal and repair verification failures."
