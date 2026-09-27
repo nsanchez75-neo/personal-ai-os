@@ -55,7 +55,28 @@ This file is the durable institutional memory of architectural decisions.
 **Status:** APPROVED  
 **Decision:** Business Brain owns customer intelligence, market/offer design, pricing, GTM, lifecycle, commercial economics and experimentation, while CEO Brain retains strategic authority, AI Director retains orchestration, and AI Architect retains technical authority.
 **Reason:** Prevents overlap between brains and makes the Business Brain operationally useful without turning it into a second CEO or technical architect.
+
 ## D-012 — Portable project memory/context layer
 **Status:** APPROVED  
 **Decision:** Maintain a provider-neutral project memory/context layer under memory/ with separate MODEL-CONTEXT.md, SESSION-CONTEXT.md, USER-PREFERENCES.md and LEARNINGS.md. These files support continuity across AI models and sessions but do not override the canonical authority hierarchy; DECISIONS.md remains the durable authority for architectural decisions.
 **Reason:** Project continuity must remain auditable, versionable and available to any provider, rather than depending exclusively on provider-native memory.
+
+## D-013 — Provider-neutral Business Brain runtime
+**Status:** APPROVED  
+**Decision:** Build Business Brain Runtime v0.1 as a provider-neutral execution layer between the Business Brain contract and concrete model adapters.
+**Reason:** The Business Brain must remain model-agnostic while the runtime can add context construction, evidence adjudication, consistency checks, repair and evaluation gates around model-specific behavior.
+
+## D-014 — Model qualification separate from Business Brain qualification
+**Status:** APPROVED  
+**Decision:** Qualify concrete models through model profiles and a dedicated qualification battery. Do not redesign the Business Brain around the first local model.
+**Reason:** Model capabilities, adapter behavior and Business Brain invariants are different layers and must remain diagnosable.
+
+## D-015 — Trace-based error attribution and repair
+**Status:** APPROVED  
+**Decision:** Candidate errors require exact textual traceability, semantic phenomenon confirmation, polarity/negation checking, context checking and contrary testing before attribution. Repairs must modify demonstrated errors only and pass an independent re-audit.
+**Reason:** T16–T18 showed self-evaluation can misattribute errors and T18 exposed negation reversal plus repair-nonrepair.
+
+## D-016 — Repository-first execution preference
+**Status:** APPROVED  
+**Decision:** For PERSONAL AI OS work, when repository write tools are directly available, changes may be executed through those tools without requiring a separate Work handoff.
+**Reason:** The user explicitly prefers direct repository execution and wants this treated as a project interaction preference.
