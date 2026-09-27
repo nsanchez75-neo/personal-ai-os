@@ -49,3 +49,32 @@ Establish the durable foundation before implementing the CEO Brain:
 > Automatizar lo reversible. Aprobar lo irreversible.
 
 See `BOOTSTRAP.md` for recovery and migration instructions.
+
+
+## Business Brain Runtime v0.1
+
+The Business Brain now has a provider-neutral runtime layer:
+
+```text
+Business Brain Contract
+        ↓
+Context Builder
+        ↓
+Model Adapter
+        ↓
+Evidence Adjudicator
+        ↓
+Consistency Checker
+        ↓
+Repair / Independent Re-audit
+        ↓
+Evaluation Gate
+```
+
+The first local model profile is qwen3:8b through Ollama. Model qualification is separate from Business Brain qualification. See:
+- runtime/business_brain/RUNTIME-CONTRACT.md
+- evaluations/MODEL-QUALIFICATION-BATTERY-v0.1.md
+- evaluations/model-profiles/qwen3-8b.yaml
+- evaluations/REGRESSION-CATALOG-v0.1.md
+
+**Block 2 remains OPEN:** the existing 27/27 result is harness validation, not real LLM behavioral validation.
