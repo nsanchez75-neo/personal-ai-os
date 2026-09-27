@@ -14,7 +14,10 @@ the Business Brain around that model.
 - response extraction;
 - system/user instruction following;
 - metadata capture;
+- deterministic consistency guardrails;
 - structured-output readiness.
+
+Canonical smoke scenarios: `evaluations/SMOKE-BUSINESS-BRAIN-v0.1.md`.
 
 ### Layer 2 — Critical behavioral
 Prioritize observed regression risks:
