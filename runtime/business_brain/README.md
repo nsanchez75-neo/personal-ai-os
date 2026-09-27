@@ -1,9 +1,62 @@
-# Business Brain Runtime
+# Business Brain Runtime v0.1
 
-Minimal provider-neutral runtime/evaluator for Business Brain v0.1.
+Provider-neutral runtime for executing Business Brain contracts against interchangeable
+models.
 
-Validation modes:
-- HARNESS_VALIDATION: deterministic fixture validates loading, adapter contract, assertion evaluation and serialization. It does NOT prove LLM behavior.
-- LLM_BEHAVIOR_VALIDATION: future real-model adapters use the same contract.
+## Architecture
 
-The core has no provider SDK dependency. Legacy skills remain out of scope until real-model runtime validation is available.
+```
+Context Builder
+      ↓
+Business Brain Contract
+      ↓
+Model Adapter
+      ↓
+Raw Model Response
+      ↓
+Evidence Adjudicator
+      ↓
+Consistency Checker
+      ↓
+Repair / Independent Re-audit
+      ↓
+Evaluation Gate
+```
+
+## Current adapter
+
+- OllamaAdapter
+- First qualified candidate: qwen3:8b
+- Local endpoint: http://localhost:11434
+- Standard-library HTTP client; no provider SDK dependency
+
+## Validation modes
+
+- HARNESS_VALIDATION: deterministic fixture validates runtime plumbing only.
+- LLM_BEHAVIOR_VALIDATION: real model output evaluated against the Business Brain contract.
+
+The harness PASS does not imply LLM behavior PASS.
+
+## Guardrail philosophy
+
+The runtime must compensate for observed model failure modes without redefining
+the Business Brain around one model.
+
+Important controls include:
+- evidence/inference separation;
+- declaration vs behavior;
+- absence vs negative evidence;
+- trace-based error attribution;
+- negation/contrary test;
+- repair-only-real-errors;
+- independent repair verification;
+- internal consistency checks.
+
+## Qualification
+
+See:
+- `evaluations/MODEL-QUALIFICATION-BATTERY-v0.1.md`
+- `evaluations/model-profiles/qwen3-8b.yaml`
+
+Block 2 remains OPEN until real-model behavioral validation is reproducible and
+material regressions are addressed.
