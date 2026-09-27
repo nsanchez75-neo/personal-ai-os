@@ -2,7 +2,7 @@
 
 **Purpose:** Convert the 22 specification-level acceptance tests into concrete scenarios with explicit assertions.
 
-**Validation status:** Scenario suite created. The repository does not yet contain an instantiated Business Brain runtime or automated evaluator, so execution in this phase is model-mediated/manual rather than a reproducible runtime benchmark.
+**Validation status:** Scenario suite is instantiated for the provider-neutral runtime. Fixture execution validates harness plumbing; Ollama execution is the real-model behavioral path. No real-model PASS is claimed until executed locally and preserved with raw outputs/metadata.
 
 ## Execution contract
 
@@ -302,4 +302,4 @@ A scenario failure becomes a regression case with:
 
 ## Current conclusion
 
-The scenario suite is ready for execution, but no claim of runtime pass is made until an instantiated Business Brain evaluator exists.
+The scenario suite is executable through `runtime/business_brain/runner.py`. The fixture path remains harness validation only. The Ollama path is the LLM behavior validation path and must be executed locally against the configured model before qualification status changes.
