@@ -1,6 +1,35 @@
-"""Lightweight deterministic consistency checks for runtime outputs."""
+"""Lightweight deterministic consistency checks for runtime outputs.
+
+These checks are guardrails, not semantic adjudication. In particular, a phrase
+such as "no demuestra" must not be treated as equivalent to "demuestra".
+"""
 
 import re
+
+
+def _has_unnegated_phrase(text: str, phrase: str) -> bool:
+    """Detect phrase only when a nearby negation does not explicitly reverse it."""
+    lower = text.lower()
+    start = 0
+    while True:
+        index = lower.find(phrase, start)
+        if index < 0:
+            return False
+        context = lower[max(0, index - 60):index]
+        negations = (
+            "no ",
+            "no se ",
+            "no puede ",
+            "no permite ",
+            "no demuestra ",
+            "cannot ",
+            "does not ",
+            "doesn't ",
+            "not ",
+        )
+        if not any(context.endswith(n) or f" {n}" in context for n in negations):
+            return True
+        start = index + len(phrase)
 
 
 def check_no_unsupported_numeric_claims(text: str) -> list[str]:
@@ -26,18 +55,17 @@ def check_epistemic_language(text: str) -> list[str]:
         "business validated",
         "negocio validado",
     ]
-    lower = text.lower()
     for phrase in risky:
-        if phrase in lower:
+        if _has_unnegated_phrase(text, phrase):
             findings.append(f"strong_inference:{phrase}")
     return findings
 
 
 def check_runtime_output(text: str) -> dict[str, object]:
+    numeric = check_no_unsupported_numeric_claims(text)
+    epistemic = check_epistemic_language(text)
     return {
-        "unsupported_numeric_claims": check_no_unsupported_numeric_claims(text),
-        "epistemic_risk_phrases": check_epistemic_language(text),
-        "status": "REVIEW_REQUIRED"
-        if check_no_unsupported_numeric_claims(text) or check_epistemic_language(text)
-        else "CLEAR",
+        "unsupported_numeric_claims": numeric,
+        "epistemic_risk_phrases": epistemic,
+        "status": "REVIEW_REQUIRED" if numeric or epistemic else "CLEAR",
     }
