@@ -11,6 +11,12 @@ Move from isolated model tests T01–T18 to a provider-neutral Business Brain ru
 
 ## Completed in this phase
 
+### Runtime integration integrity
+- Runner now builds the full Business Brain + Runtime Contract context instead of loading only the Business Brain system prompt.
+- Runner records deterministic consistency-check findings alongside raw model metadata.
+- Epistemic guardrail is negation-aware so `no demuestra` is not treated as `demuestra`.
+- Scenario-suite status now reflects that the runtime path exists; no real-model PASS is claimed until local execution.
+
 ### T01–T18 evidence synthesis
 - Qwen3 8B was evaluated under a fixed methodology with thinking ON.
 - T01–T18 remain evidence, not universal model claims.
@@ -52,10 +58,10 @@ Profile status: CONDITIONAL based on T01–T18.
 
 ## Next actions
 
-1. Integrate OllamaAdapter into the runtime runner.
-2. Add a real-model execution mode that preserves raw outputs and metadata.
-3. Run smoke qualification locally against qwen3:8b.
-4. Execute targeted critical behavioral regressions before full T01–T18 runtime execution.
+1. Run smoke qualification locally against qwen3:8b using the integrated runner.
+2. Execute targeted critical behavioral regressions before full T01–T18 runtime execution.
+3. Preserve raw outputs, metadata and consistency findings in evaluations/results/.
+4. Add/strengthen semantic adjudication only where runtime evidence demonstrates a gap.
 5. Record results in evaluations/results/ without claiming runtime PASS until actual execution is completed.
 6. Reassess Block 2 only after reproducible behavioral evidence.
 
