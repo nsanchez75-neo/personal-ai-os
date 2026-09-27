@@ -3,11 +3,12 @@ import json
 import re
 from pathlib import Path
 
-from runtime.business_brain.adapters.base import load_system_prompt
+from runtime.business_brain.context import build_context
 from runtime.business_brain.adapters.fixture import FixtureAdapter
 from runtime.business_brain.adapters.ollama import OllamaAdapter
 from runtime.business_brain.models import Scenario
 from runtime.business_brain.evaluator import evaluate_scenario
+from runtime.business_brain.consistency import check_runtime_output
 
 
 def load_scenarios(path):
@@ -53,7 +54,7 @@ def run(
     temperature=0.6,
     thinking=True,
 ):
-    system = load_system_prompt(system_prompt_path)
+    system = build_context(system_prompt_path)
     scenarios = load_scenarios(scenario_path)
     adapter = build_adapter(provider, model, base_url, temperature, thinking)
     results = []
@@ -61,14 +62,24 @@ def run(
 
     for scenario in scenarios:
         response = adapter.generate(system, scenario.input_text)
+        consistency = check_runtime_output(response.text)
+        response_metadata = {
+            **response.metadata,
+            "consistency_check": consistency,
+        }
+        response_with_metadata = type(response)(
+            text=response.text,
+            provider=response.provider,
+            metadata=response_metadata,
+        )
         raw_outputs.append({
             "scenario_id": scenario.scenario_id,
             "title": scenario.title,
             "provider": response.provider,
-            "metadata": response.metadata,
+            "metadata": response_metadata,
             "text": response.text,
         })
-        results.append(evaluate_scenario(scenario, response))
+        results.append(evaluate_scenario(scenario, response_with_metadata))
 
     validation_mode = (
         "HARNESS_VALIDATION" if provider == "fixture"
