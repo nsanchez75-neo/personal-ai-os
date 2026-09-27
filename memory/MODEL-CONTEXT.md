@@ -51,17 +51,21 @@ Then read only specialized files required for the current objective.
 
 Block 2 — Business Brain real-model provider-neutral behavioral validation.
 
-Harness validation is complete. Real LLM behavioral validation remains OPEN.
+Harness validation is complete. Business Brain Runtime v0.1 foundations are now implemented. Real LLM behavioral validation remains OPEN.
 
 ## Current objective
 
-Validate actual Business Brain behavior against real local models before changing canonical prompts, skills or architecture.
+Execute and qualify the provider-neutral Business Brain Runtime against real local models while keeping the Business Brain itself provider-neutral.
 
 ## Current model
 
 Qwen3 8B via local Ollama.
 
 Thinking: ON.
+
+Runtime profile: evaluations/model-profiles/qwen3-8b.yaml.
+
+Qualification status: CONDITIONAL based on T01–T18 evidence.
 
 ## Evaluation state
 
@@ -115,14 +119,25 @@ AI Architect retains technical authority.
 
 For AI Factory construction/evaluation questions, prefer one integrated response block that both executes the requested work and teaches the relevant concept. This is a project interaction preference, not a universal formatting requirement.
 
-## Session continuity
+## Runtime continuity
 
-Current immediate next action:
-1. User runs Qwen3 8B T03.
-2. User provides complete output including elapsed time.
-3. Evaluate T03 against T01/T02.
-4. Do not modify canonical Business Brain prompts/skills from T03 alone.
-5. Continue accumulating evidence until repeated patterns justify regression updates.
+Implemented:
+- runtime/business_brain/RUNTIME-CONTRACT.md
+- runtime/business_brain/context.py
+- runtime/business_brain/adjudicator.py
+- runtime/business_brain/consistency.py
+- runtime/business_brain/adapters/ollama.py
+- runtime/business_brain/runner.py real-provider mode
+- evaluations/MODEL-QUALIFICATION-BATTERY-v0.1.md
+- evaluations/model-profiles/qwen3-8b.yaml
+
+Next:
+1. Run local Ollama smoke qualification.
+2. Run targeted critical regressions.
+3. Execute full T01–T18 through the runtime when ready.
+4. Preserve raw outputs and metadata.
+5. Convert replicated failures into regression cases and correct the smallest responsible layer.
+6. Re-run affected tests before changing canonical architecture.
 
 ## Related memory files
 
