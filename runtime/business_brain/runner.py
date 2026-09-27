@@ -15,12 +15,12 @@ def load_scenarios(path):
     chunks = re.split(r"(?=^## (?:Scenario|X))", text, flags=re.M)
     out = []
     for chunk in chunks:
-        m = re.match(r"^## (Scenario|X)(?: |)(\\d+)? ?— ?(.+)$", chunk, re.M)
+        m = re.match(r"^## (Scenario|X)(?: |)(\d+)? ?— ?(.+)$", chunk, re.M)
         if not m:
             continue
         kind, num, title = m.groups()
         sid = ("X" + num if kind == "X" else num)
-        im = re.search(r"\\*\\*Input:\\*\\* (.+?)(?=\\n\\n|\\n##|$)", chunk, re.S)
+        im = re.search(r"\*\*Input:\*\* (.+?)(?=\n\n|\n##|$)", chunk, re.S)
         assertions = re.findall(r"^- (.+)$", chunk, re.M)
         if not assertions:
             continue
