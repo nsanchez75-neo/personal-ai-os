@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 2026-09-26 — Business Brain Runtime v0.1 foundations
+- Added provider-neutral Business Brain Runtime contract and context builder.
+- Added OllamaAdapter using the standard library, keeping provider SDKs out of the core runtime.
+- Added Evidence Adjudicator primitives with traceability, polarity/negation and contrary-test controls.
+- Added deterministic consistency guardrails for unsupported numeric claims and strong epistemic language.
+- Added Model Qualification Battery v0.1.
+- Added Qwen3 8B model profile with CONDITIONAL qualification status based on T01–T18 evidence.
+- Added D-013 through D-016 covering runtime separation, model qualification, trace-based repair and repository-first execution preference.
+- Kept Block 2 OPEN; no real-model runtime PASS is claimed by these structural changes.
+
 ## 2026-09-24 — Portable project memory/context layer
 - Added memory/MODEL-CONTEXT.md for provider-neutral operational context.
 - Added memory/SESSION-CONTEXT.md for current session state and exact next action.
