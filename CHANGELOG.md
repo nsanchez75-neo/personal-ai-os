@@ -73,3 +73,12 @@
 - GitHub Actions endpoint returned no available workflow run at validation time, so no CI execution is claimed.
 - Added runtime harness validation report.
 - Block 2 remains OPEN; legacy skill incorporation remains blocked until real-model behavioral validation.
+
+
+## 2026-10-04 — Evolution Loop v0.1 + Business Brain context integrity
+- Added provider-neutral Evolution / Improvement Loop architecture for brains, agents, skills and workflows.
+- Established the rule: learning is not mutation; production mutation remains gated and auditable.
+- Added improvement protocol, ledger and Business Brain evolution proposal artifacts.
+- Added Business Brain context-integrity checks to prevent malformed/placeholder prompts from being interpreted as model failures.
+- This change is architectural/runtime guardrail work and does not claim new LLM behavioral qualification.
+
