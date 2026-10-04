@@ -1,4 +1,7 @@
+"""Provider-neutral Business Brain runtime runner with context-integrity gating."""
+
 import argparse
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -9,6 +12,33 @@ from runtime.business_brain.adapters.ollama import OllamaAdapter
 from runtime.business_brain.models import Scenario
 from runtime.business_brain.evaluator import evaluate_scenario
 from runtime.business_brain.consistency import check_runtime_output
+
+
+PLACEHOLDER_MARKERS = ("[PEGA AQUÍ", "[PASTE HERE", "TODO_SYSTEM_PROMPT", "TODO_SCENARIO")
+EXPECTED_CONTEXT_MARKERS = ("BUSINESS BRAIN", "RUNTIME CONTRACT")
+
+
+def check_context_integrity(system_prompt, scenario_input):
+    reasons = []
+    system_upper = system_prompt.upper()
+    scenario_upper = scenario_input.upper()
+    if not system_prompt.strip():
+        reasons.append("empty_system_prompt")
+    if not scenario_input.strip():
+        reasons.append("empty_scenario")
+    if any(marker.upper() in system_upper or marker.upper() in scenario_upper for marker in PLACEHOLDER_MARKERS):
+        reasons.append("placeholder_detected")
+    for marker in EXPECTED_CONTEXT_MARKERS:
+        if marker not in system_upper:
+            reasons.append(f"missing_system_marker:{marker}")
+    return {
+        "status": "CLEAR" if not reasons else "INVALID_CONTEXT",
+        "reasons": reasons,
+        "system_chars": len(system_prompt),
+        "scenario_chars": len(scenario_input),
+        "system_sha256": hashlib.sha256(system_prompt.encode("utf-8")).hexdigest(),
+        "scenario_sha256": hashlib.sha256(scenario_input.encode("utf-8")).hexdigest(),
+    }
 
 
 def load_scenarios(path):
@@ -61,10 +91,30 @@ def run(
     raw_outputs = []
 
     for scenario in scenarios:
+        context_integrity = check_context_integrity(system, scenario.input_text)
+        if context_integrity["status"] != "CLEAR":
+            raw_outputs.append({
+                "scenario_id": scenario.scenario_id,
+                "title": scenario.title,
+                "provider": provider,
+                "metadata": {"context_integrity": context_integrity},
+                "text": "",
+            })
+            results.append({
+                "scenario_id": scenario.scenario_id,
+                "title": scenario.title,
+                "status": "INVALID_CONTEXT",
+                "provider": provider,
+                "assertions": [],
+                "metadata": {"context_integrity": context_integrity},
+            })
+            continue
+
         response = adapter.generate(system, scenario.input_text)
         consistency = check_runtime_output(response.text)
         response_metadata = {
             **response.metadata,
+            "context_integrity": context_integrity,
             "consistency_check": consistency,
         }
         response_with_metadata = type(response)(
@@ -79,7 +129,8 @@ def run(
             "metadata": response_metadata,
             "text": response.text,
         })
-        results.append(evaluate_scenario(scenario, response_with_metadata))
+        evaluated = evaluate_scenario(scenario, response_with_metadata)
+        results.append(evaluated)
 
     validation_mode = (
         "HARNESS_VALIDATION" if provider == "fixture"
@@ -92,12 +143,12 @@ def run(
         "scenario_count": len(results),
         "results": [
             {
-                "scenario_id": r.scenario_id,
-                "title": r.title,
-                "status": r.status,
-                "provider": r.provider,
-                "assertions": [a.__dict__ for a in r.assertion_results],
-                "metadata": r.metadata,
+                "scenario_id": r["scenario_id"] if isinstance(r, dict) else r.scenario_id,
+                "title": r["title"] if isinstance(r, dict) else r.title,
+                "status": r["status"] if isinstance(r, dict) else r.status,
+                "provider": r["provider"] if isinstance(r, dict) else r.provider,
+                "assertions": r.get("assertions", []) if isinstance(r, dict) else [a.__dict__ for a in r.assertion_results],
+                "metadata": r.get("metadata", {}) if isinstance(r, dict) else r.metadata,
             }
             for r in results
         ],
