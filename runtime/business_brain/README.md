@@ -60,3 +60,12 @@ See:
 
 Block 2 remains OPEN until real-model behavioral validation is reproducible and
 material regressions are addressed.
+
+
+## Context Integrity Gate
+
+Before behavioral evaluation, the runtime checks that constructed context is non-empty, contains expected Business Brain/runtime markers, and contains no known manual-test placeholders. It records character counts and SHA-256 provenance. INVALID_CONTEXT results are not adjudicated as model behavior.
+
+## Evolution
+
+Business Brain participates in the shared evolution protocol. Learning, proposals and sandbox experiments are versioned separately from production mutation. See evolution/IMPROVEMENT-PROTOCOL.md.

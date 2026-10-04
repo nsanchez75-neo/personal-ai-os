@@ -122,3 +122,36 @@ Observed failures span generation, evaluation, self-audit, error attribution and
 
 Use layered controls:
 Context Builder → Model → Parser → Evidence Adjudicator → Consistency Checker → Repair → Independent Re-audit → Evaluation Gate.
+
+
+## L-007 — Evolution Loop: learning is not mutation
+
+Status: ARCHITECTURAL LEARNING
+Confidence: HIGH
+Source: Business Brain T01–T18 plus runtime/harness findings
+Needs replication: NOT_APPLICABLE for the architecture; behavioral improvement proposals still require evidence
+
+### Observation
+Business Brain work produced reusable lessons about model failure, evaluation, repair, provenance and malformed test context. Treating each brain as a one-off project would repeat this discovery cost.
+
+### Implication
+AI Factory now uses a shared Evolution / Improvement Loop: OBSERVE → EVIDENCE → DIAGNOSE → HYPOTHESIZE → PROPOSE → SANDBOX → EVALUATE → REGRESSION GATE → APPROVE → PROMOTE → MONITOR → LEARN.
+
+### Guardrails
+Learning does not mutate production. Model self-assessment is not ground truth. High-impact or irreversible promotion requires human approval. GitHub remains the source of truth and historical evidence is not silently rewritten.
+
+### Reuse
+The protocol is intended for Business Brain, CEO Brain, AI Architect, agents, skills and workflows.
+
+## L-008 — Context integrity is a prerequisite to behavioral evaluation
+
+Status: ARCHITECTURAL LEARNING
+Confidence: HIGH
+Source: T02 manual reruns
+Needs replication: NOT_APPLICABLE
+
+### Observation
+A malformed/manual test run stopped cleanly but used only 74 prompt-evaluation tokens and returned a response saying it lacked the T02 prompt context. Treating this as model behavior would have created false evidence.
+
+### Implication
+Behavioral adjudication must occur only after context-integrity and generation gates pass. The runtime records context provenance and can return INVALID_CONTEXT before behavioral evaluation.
