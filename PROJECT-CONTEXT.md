@@ -70,3 +70,10 @@ External research used for the architecture informs methods but does not overrid
 - memory/LEARNINGS.md — observations/provisional learnings requiring replication.
 
 These files support continuity; DECISIONS.md remains the durable authority for architectural decisions.
+
+
+## Architectural evolution — Evolution Loop v0.1
+
+The project now treats learning and mutation as separate operations. Business Brain discoveries are the first input to a shared, provider-neutral Evolution Loop reusable by all brains, agents, skills and workflows. The loop is OBSERVE → EVIDENCE → DIAGNOSE → HYPOTHESIZE → PROPOSE → SANDBOX → EVALUATE → REGRESSION GATE → APPROVE → PROMOTE → MONITOR → LEARN. Production behavior, permissions, memory/tool policies, safety constraints and irreversible/high-impact changes require human approval.
+
+A Business Brain Context Integrity Gate was added to prevent malformed or placeholder test context from being misclassified as model behavioral failure. Context anomalies must stop behavioral adjudication.
