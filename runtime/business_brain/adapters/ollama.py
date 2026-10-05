@@ -22,14 +22,20 @@ class OllamaAdapter(ModelAdapter):
         temperature: float = 0.6,
         thinking: bool = True,
         timeout: int = 300,
+        num_predict: int | None = None,
     ):
         self.model = model
         self.base_url = base_url.rstrip("/")
         self.temperature = temperature
         self.thinking = thinking
         self.timeout = timeout
+        self.num_predict = num_predict
 
     def generate(self, system_prompt: str, scenario_input: str) -> ModelResponse:
+        options: dict[str, Any] = {"temperature": self.temperature}
+        if self.num_predict is not None:
+            options["num_predict"] = self.num_predict
+
         payload: dict[str, Any] = {
             "model": self.model,
             "messages": [
@@ -37,7 +43,7 @@ class OllamaAdapter(ModelAdapter):
                 {"role": "user", "content": scenario_input},
             ],
             "stream": False,
-            "options": {"temperature": self.temperature},
+            "options": options,
             "think": self.thinking,
         }
         request = urllib.request.Request(
@@ -59,8 +65,13 @@ class OllamaAdapter(ModelAdapter):
                 "base_url": self.base_url,
                 "thinking": self.thinking,
                 "temperature": self.temperature,
+                "num_predict": self.num_predict,
                 "done": raw.get("done"),
+                "done_reason": raw.get("done_reason"),
                 "total_duration_ns": raw.get("total_duration"),
+                "load_duration_ns": raw.get("load_duration"),
+                "prompt_eval_duration_ns": raw.get("prompt_eval_duration"),
+                "eval_duration_ns": raw.get("eval_duration"),
                 "prompt_eval_count": raw.get("prompt_eval_count"),
                 "eval_count": raw.get("eval_count"),
             },
