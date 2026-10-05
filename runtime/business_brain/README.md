@@ -79,7 +79,7 @@ The runner supports controlled single-scenario experiments without manually copy
 python -m runtime.business_brain.runner `
   --provider ollama `
   --model qwen3:8b `
-  --thinking=false `
+  --no-thinking `
   --temperature 0.6 `
   --timeout 180 `
   --num-predict 768 `
