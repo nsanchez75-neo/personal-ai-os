@@ -82,3 +82,14 @@
 - Added Business Brain context-integrity checks to prevent malformed/placeholder prompts from being interpreted as model failures.
 - This change is architectural/runtime guardrail work and does not claim new LLM behavioral qualification.
 
+
+
+## 2026-10-04 — Runtime evaluation gates
+
+- Added single-scenario execution to the Business Brain runner via `--scenario-id`.
+- Added explicit Ollama generation controls: `--timeout` and `--num-predict`.
+- Added generation gating for timeout, incomplete generation and `done_reason=length` truncation.
+- Added optional `--require-json` structural gate.
+- Preserved provider-neutral fixture behavior while preventing harness assertions from being injected into real LLM prompts.
+- Canonicalized the previously manual T02-COMPACT experiment as `evaluations/T02-COMPACT-v0.1.md`.
+- T02-COMPACT remains OPEN until a complete, context-valid, structurally valid real-model run is obtained.
