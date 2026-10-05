@@ -102,6 +102,7 @@ def run(
     timeout=300,
     num_predict=None,
     scenario_id=None,
+    require_json=False,
 ):
     system = build_context(system_prompt_path)
     scenarios = load_scenarios(scenario_path)
@@ -182,6 +183,27 @@ def run(
         consistency = check_runtime_output(response.text)
         response_metadata["consistency_check"] = consistency
 
+        if require_json:
+            try:
+                json.loads(response.text)
+                response_metadata["json_gate"] = {"status": "VALID"}
+            except json.JSONDecodeError as exc:
+                response_metadata["json_gate"] = {
+                    "status": "INVALID_JSON",
+                    "error": str(exc),
+                }
+                results.append({
+                    "scenario_id": scenario.scenario_id,
+                    "title": scenario.title,
+                    "status": "INVALID_JSON",
+                    "provider": response.provider,
+                    "assertions": [],
+                    "metadata": response_metadata,
+                })
+                continue
+        else:
+            response_metadata["json_gate"] = {"status": "NOT_REQUIRED"}
+
         response_with_metadata = type(response)(
             text=response.text,
             provider=response.provider,
@@ -233,6 +255,7 @@ if __name__ == "__main__":
     parser.add_argument("--timeout", type=int, default=300)
     parser.add_argument("--num-predict", type=int, default=None)
     parser.add_argument("--scenario-id", default=None)
+    parser.add_argument("--require-json", action="store_true")
     args = parser.parse_args()
 
     payload = run(
@@ -247,6 +270,7 @@ if __name__ == "__main__":
         timeout=args.timeout,
         num_predict=args.num_predict,
         scenario_id=args.scenario_id,
+        require_json=args.require_json,
     )
 
     counts = {}
