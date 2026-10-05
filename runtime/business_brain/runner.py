@@ -137,8 +137,12 @@ def run(
             })
             continue
 
+        generation_input = scenario.input_text
+        if provider == "fixture":
+            generation_input += "\n\nASSERTIONS_FOR_HARNESS:\n" + "\n".join(scenario.assertions)
+
         try:
-            response = adapter.generate(system, scenario.input_text)
+            response = adapter.generate(system, generation_input)
         except TimeoutError as exc:
             response = type(
                 "TimeoutResponse",
