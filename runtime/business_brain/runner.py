@@ -1,4 +1,4 @@
-"""Provider-neutral Business Brain runtime runner with context-integrity gating."""
+"""Provider-neutral Business Brain runtime runner with context-integrity and generation gates."""
 
 import argparse
 import hashlib
@@ -61,7 +61,7 @@ def load_scenarios(path):
     return out
 
 
-def build_adapter(provider, model, base_url, temperature, thinking):
+def build_adapter(provider, model, base_url, temperature, thinking, timeout, num_predict):
     if provider == "fixture":
         return FixtureAdapter()
     if provider == "ollama":
@@ -70,8 +70,24 @@ def build_adapter(provider, model, base_url, temperature, thinking):
             base_url=base_url,
             temperature=temperature,
             thinking=thinking,
+            timeout=timeout,
+            num_predict=num_predict,
         )
     raise ValueError(f"Unsupported provider: {provider}")
+
+
+def _generation_gate(metadata):
+    done = metadata.get("done")
+    done_reason = metadata.get("done_reason")
+    if metadata.get("timeout"):
+        return {"status": "TIMEOUT", "reason": metadata.get("error", "model request timed out")}
+    if done is not True:
+        return {"status": "GENERATION_INCOMPLETE", "reason": f"done={done!r}"}
+    if done_reason == "length":
+        return {"status": "TRUNCATED", "reason": "Ollama stopped at the requested token limit"}
+    if done_reason not in (None, "stop"):
+        return {"status": "GENERATION_INCOMPLETE", "reason": f"done_reason={done_reason!r}"}
+    return {"status": "COMPLETE", "reason": "generation completed without length truncation"}
 
 
 def run(
@@ -83,10 +99,20 @@ def run(
     base_url="http://localhost:11434",
     temperature=0.6,
     thinking=True,
+    timeout=300,
+    num_predict=None,
+    scenario_id=None,
 ):
     system = build_context(system_prompt_path)
     scenarios = load_scenarios(scenario_path)
-    adapter = build_adapter(provider, model, base_url, temperature, thinking)
+    if scenario_id is not None:
+        scenarios = [s for s in scenarios if s.scenario_id == scenario_id]
+        if not scenarios:
+            raise ValueError(f"Scenario id not found: {scenario_id}")
+
+    adapter = build_adapter(
+        provider, model, base_url, temperature, thinking, timeout, num_predict
+    )
     results = []
     raw_outputs = []
 
@@ -110,18 +136,30 @@ def run(
             })
             continue
 
-        response = adapter.generate(system, scenario.input_text)
-        consistency = check_runtime_output(response.text)
+        try:
+            response = adapter.generate(system, scenario.input_text)
+        except TimeoutError as exc:
+            response = type(
+                "TimeoutResponse",
+                (),
+                {
+                    "text": "",
+                    "provider": provider,
+                    "metadata": {
+                        "model": model,
+                        "timeout": True,
+                        "error": str(exc),
+                        "context_integrity": context_integrity,
+                    },
+                },
+            )()
+
         response_metadata = {
             **response.metadata,
             "context_integrity": context_integrity,
-            "consistency_check": consistency,
+            "generation_gate": _generation_gate(response.metadata),
         }
-        response_with_metadata = type(response)(
-            text=response.text,
-            provider=response.provider,
-            metadata=response_metadata,
-        )
+
         raw_outputs.append({
             "scenario_id": scenario.scenario_id,
             "title": scenario.title,
@@ -129,6 +167,26 @@ def run(
             "metadata": response_metadata,
             "text": response.text,
         })
+
+        if response_metadata["generation_gate"]["status"] != "COMPLETE":
+            results.append({
+                "scenario_id": scenario.scenario_id,
+                "title": scenario.title,
+                "status": response_metadata["generation_gate"]["status"],
+                "provider": response.provider,
+                "assertions": [],
+                "metadata": response_metadata,
+            })
+            continue
+
+        consistency = check_runtime_output(response.text)
+        response_metadata["consistency_check"] = consistency
+
+        response_with_metadata = type(response)(
+            text=response.text,
+            provider=response.provider,
+            metadata=response_metadata,
+        )
         evaluated = evaluate_scenario(scenario, response_with_metadata)
         results.append(evaluated)
 
@@ -172,6 +230,9 @@ if __name__ == "__main__":
     parser.add_argument("--base-url", default="http://localhost:11434")
     parser.add_argument("--temperature", type=float, default=0.6)
     parser.add_argument("--thinking", action=argparse.BooleanOptionalAction, default=True)
+    parser.add_argument("--timeout", type=int, default=300)
+    parser.add_argument("--num-predict", type=int, default=None)
+    parser.add_argument("--scenario-id", default=None)
     args = parser.parse_args()
 
     payload = run(
@@ -183,6 +244,9 @@ if __name__ == "__main__":
         base_url=args.base_url,
         temperature=args.temperature,
         thinking=args.thinking,
+        timeout=args.timeout,
+        num_predict=args.num_predict,
+        scenario_id=args.scenario_id,
     )
 
     counts = {}
