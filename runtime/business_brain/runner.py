@@ -255,7 +255,15 @@ if __name__ == "__main__":
     parser.add_argument("--model", default="qwen3:8b")
     parser.add_argument("--base-url", default="http://localhost:11434")
     parser.add_argument("--temperature", type=float, default=0.6)
-    parser.add_argument("--thinking", action=argparse.BooleanOptionalAction, default=True)
+    parser.add_argument(
+        "--thinking",
+        nargs="?",
+        const=True,
+        default=True,
+        type=lambda value: value.lower() in ("1", "true", "yes", "on"),
+        help="Enable thinking; accepts --thinking, --thinking=true/false, or --no-thinking.",
+    )
+    parser.add_argument("--no-thinking", dest="thinking", action="store_false", help="Disable thinking.")
     parser.add_argument("--timeout", type=int, default=300)
     parser.add_argument("--num-predict", type=int, default=None)
     parser.add_argument("--scenario-id", default=None)
