@@ -69,3 +69,31 @@ Before behavioral evaluation, the runtime checks that constructed context is non
 ## Evolution
 
 Business Brain participates in the shared evolution protocol. Learning, proposals and sandbox experiments are versioned separately from production mutation. See evolution/IMPROVEMENT-PROTOCOL.md.
+
+
+## Single-scenario LLM execution
+
+The runner supports controlled single-scenario experiments without manually copying the Business Brain prompt:
+
+```powershell
+python -m runtime.business_brain.runner `
+  --provider ollama `
+  --model qwen3:8b `
+  --thinking=false `
+  --temperature 0.6 `
+  --timeout 180 `
+  --num-predict 768 `
+  --scenario-id 02 `
+  --require-json `
+  --scenarios evaluations/T02-COMPACT-v0.1.md `
+  --output evaluations/results/BUSINESS-BRAIN-T02-COMPACT-QWEN3-8B.json
+```
+
+The runtime records:
+- context-integrity status and SHA-256 provenance;
+- generation completion and `done_reason`;
+- requested and actual generation token counts when supplied by the provider;
+- JSON validity when `--require-json` is enabled;
+- raw model output and metadata.
+
+A run with invalid context, timeout, truncation, or invalid JSON is a test-execution result and must not be treated as a Business Brain behavioral failure.
