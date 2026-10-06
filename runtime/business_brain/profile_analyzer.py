@@ -14,7 +14,7 @@ from pathlib import Path
 from typing import Any
 
 
-ANALYSIS_VERSION = "0.2"
+ANALYSIS_VERSION = "0.3"
 
 METRICS = (
     "wall_seconds",
@@ -115,16 +115,26 @@ def analyze(paths: list[Path]) -> dict[str, Any]:
         else:
             execution_class = "EXECUTION_MIXED"
 
+        complete_rows = [row for row in probe_rows if row.get("status") == "COMPLETE"]
+        incomplete_rows = [
+            row for row in probe_rows
+            if row.get("status") in {"TRUNCATED", "TIMEOUT", "GENERATION_INCOMPLETE"}
+        ]
+        if complete_rows and incomplete_rows:
+            behavioral_evaluation = "PARTIALLY_EVALUABLE"
+        elif complete_rows:
+            behavioral_evaluation = "POTENTIALLY_EVALUABLE"
+        else:
+            behavioral_evaluation = "NOT_EVALUABLE"
+
         probes[probe] = {
             "runs": len(probe_rows),
             "status_counts": status_counts,
+            "complete_runs": len(complete_rows),
+            "incomplete_runs": len(incomplete_rows),
             "execution_class": execution_class,
             "metrics": metric_stats,
-            "behavioral_evaluation": (
-                "NOT_EVALUABLE"
-                if execution_class in {"TIMEOUT", "EXECUTION_TRUNCATED", "EXECUTION_MIXED_INCOMPLETE"}
-                else "POTENTIALLY_EVALUABLE"
-            ),
+            "behavioral_evaluation": behavioral_evaluation,
         }
 
     return {
@@ -162,6 +172,8 @@ def render_text(report: dict[str, Any]) -> str:
                 f"  runs: {data['runs']}",
                 f"  status: {data['status_counts']}",
                 f"  execution_class: {data['execution_class']}",
+                f"  complete_runs: {data['complete_runs']} / {data['runs']}",
+                f"  incomplete_runs: {data['incomplete_runs']} / {data['runs']}",
                 f"  behavioral_evaluation: {data['behavioral_evaluation']}",
             ]
         )
