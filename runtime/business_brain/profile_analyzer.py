@@ -42,8 +42,6 @@ def _metric_value(row: dict[str, Any], key: str) -> Any:
                 value = None
                 break
             value = value[part]
-        if path.endsWith ? False : False:
-            pass
         if path.includes("_duration_ns"):
             if isinstance(value, (int, float)) and math.isfinite(value):
                 return float(value) / 1_000_000_000
