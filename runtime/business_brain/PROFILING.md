@@ -1,4 +1,4 @@
-# Ollama Runtime Profiling Harness v0.1
+# Ollama Runtime Profiling Harness v0.2
 
 ## Purpose
 
@@ -107,3 +107,32 @@ Key comparisons:
 - TIMEOUT → insufficient execution budget for that probe; no behavioral score is assigned.
 
 The profiler is intentionally separate from the canonical Business Brain evaluation runner. Its job is to tell us what the runtime costs before we optimize prompts, token budgets, model selection, or provider adapters.
+
+## Repetition and phase timing
+
+The profiler supports `--repeat N` to expose local runtime variability. The console summary now includes prompt-processing seconds and generation seconds separately. The JSON artifact retains the raw Ollama nanosecond counters.
+
+Recommended diagnostic run after pulling the latest commit:
+
+```powershell
+python -m runtime.business_brain.profiler `
+  --probe minimal json `
+  --model qwen3:8b `
+  --temperature 0.6 `
+  --timeout 120 `
+  --num-predict 64 `
+  --repeat 3 `
+  --output evaluations/results/OLLAMA-PROFILE-QWEN3-8B-BASELINE.json
+```
+
+Then run the context/task probes once:
+
+```powershell
+python -m runtime.business_brain.profiler `
+  --probe full-context t02 `
+  --model qwen3:8b `
+  --temperature 0.6 `
+  --timeout 180 `
+  --num-predict 128 `
+  --output evaluations/results/OLLAMA-PROFILE-QWEN3-8B-CONTEXT-T02.json
+```
