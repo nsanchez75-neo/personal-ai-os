@@ -97,3 +97,20 @@ The runtime records:
 - raw model output and metadata.
 
 A run with invalid context, timeout, truncation, or invalid JSON is a test-execution result and must not be treated as a Business Brain behavioral failure.
+
+
+## Ollama inference profiling
+
+Before changing the canonical behavioral tests, use the provider-specific profiling harness to isolate model, context and task-generation cost. It runs minimal, JSON, full-context and canonical-T02 probes without scoring behavior. See `runtime/business_brain/PROFILING.md`.
+
+Example:
+
+```powershell
+python -m runtime.business_brain.profiler `
+  --probe all `
+  --model qwen3:8b `
+  --temperature 0.6 `
+  --timeout 180 `
+  --num-predict 128 `
+  --output evaluations/results/OLLAMA-PROFILE-QWEN3-8B.json
+```
