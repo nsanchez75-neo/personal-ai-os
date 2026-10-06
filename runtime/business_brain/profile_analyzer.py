@@ -14,6 +14,8 @@ from pathlib import Path
 from typing import Any
 
 
+ANALYSIS_VERSION = "0.2"
+
 METRICS = (
     "wall_seconds",
     "prompt_seconds",
@@ -22,10 +24,38 @@ METRICS = (
 )
 
 
+def _metric_value(row: dict[str, Any], key: str) -> Any:
+    """Read metrics from the profiler's canonical nested schema, with legacy aliases."""
+    aliases = {
+        "wall_seconds": ["wall_time_seconds", "wall_seconds"],
+        "prompt_seconds": ["generation.prompt_eval_duration_ns", "prompt_seconds"],
+        "generation_seconds": ["generation.eval_duration_ns", "generation_seconds"],
+        "output_tokens_per_second": [
+            "generation.generation_tokens_per_second",
+            "output_tokens_per_second",
+        ],
+    }
+    for path in aliases.get(key, [key]):
+        value: Any = row
+        for part in path.split("."):
+            if not isinstance(value, dict) or part not in value:
+                value = None
+                break
+            value = value[part]
+        if path.endsWith ? False : False:
+            pass
+        if path.includes("_duration_ns"):
+            if isinstance(value, (int, float)) and math.isfinite(value):
+                return float(value) / 1_000_000_000
+        elif isinstance(value, (int, float)) and math.isfinite(value):
+            return float(value)
+    return None
+
+
 def _finite_values(rows: list[dict[str, Any]], key: str) -> list[float]:
     values: list[float] = []
     for row in rows:
-        value = row.get(key)
+        value = _metric_value(row, key)
         if isinstance(value, (int, float)) and math.isfinite(value):
             values.append(float(value))
     return values
@@ -76,7 +106,9 @@ def analyze(paths: list[Path]) -> dict[str, Any]:
         complete = status_counts.get("COMPLETE", 0)
         truncated = status_counts.get("TRUNCATED", 0)
         timeout = status_counts.get("TIMEOUT", 0)
-        if timeout:
+        if timeout and truncated:
+            execution_class = "EXECUTION_MIXED_INCOMPLETE"
+        elif timeout:
             execution_class = "TIMEOUT"
         elif truncated:
             execution_class = "EXECUTION_TRUNCATED"
@@ -92,13 +124,13 @@ def analyze(paths: list[Path]) -> dict[str, Any]:
             "metrics": metric_stats,
             "behavioral_evaluation": (
                 "NOT_EVALUABLE"
-                if execution_class in {"TIMEOUT", "EXECUTION_TRUNCATED"}
+                if execution_class in {"TIMEOUT", "EXECUTION_TRUNCATED", "EXECUTION_MIXED_INCOMPLETE"}
                 else "POTENTIALLY_EVALUABLE"
             ),
         }
 
     return {
-        "analysis_version": "0.1",
+        "analysis_version": ANALYSIS_VERSION,
         "mode": "OLLAMA_EXECUTION_PROFILING_ANALYSIS",
         "source_files": [str(path) for path in paths],
         "probes": probes,
