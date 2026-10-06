@@ -42,7 +42,7 @@ def _metric_value(row: dict[str, Any], key: str) -> Any:
                 value = None
                 break
             value = value[part]
-        if path.includes("_duration_ns"):
+        if "_duration_ns" in path:
             if isinstance(value, (int, float)) and math.isfinite(value):
                 return float(value) / 1_000_000_000
         elif isinstance(value, (int, float)) and math.isfinite(value):
