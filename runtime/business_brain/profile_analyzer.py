@@ -1,0 +1,182 @@
+"""Analyze profiler JSON outputs without scoring model behavior.
+
+This tool is execution-analysis only. It deliberately treats TRUNCATED/TIMEOUT
+runs as non-evaluable for behavioral conclusions.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import math
+import statistics
+from pathlib import Path
+from typing import Any
+
+
+METRICS = (
+    "wall_seconds",
+    "prompt_seconds",
+    "generation_seconds",
+    "output_tokens_per_second",
+)
+
+
+def _finite_values(rows: list[dict[str, Any]], key: str) -> list[float]:
+    values: list[float] = []
+    for row in rows:
+        value = row.get(key)
+        if isinstance(value, (int, float)) and math.isfinite(value):
+            values.append(float(value))
+    return values
+
+
+def _stats(values: list[float]) -> dict[str, float | int | None]:
+    if not values:
+        return {"n": 0, "min": None, "median": None, "max": None}
+    return {
+        "n": len(values),
+        "min": min(values),
+        "median": statistics.median(values),
+        "max": max(values),
+    }
+
+
+def _load(path: Path) -> list[dict[str, Any]]:
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(data, dict) or not isinstance(data.get("results"), list):
+        raise ValueError(f"{path}: expected JSON object with a results array")
+    rows = []
+    for row in data["results"]:
+        if isinstance(row, dict):
+            item = dict(row)
+            item["_source"] = str(path)
+            rows.append(item)
+    return rows
+
+
+def analyze(paths: list[Path]) -> dict[str, Any]:
+    rows = [row for path in paths for row in _load(path)]
+    by_probe: dict[str, list[dict[str, Any]]] = {}
+    for row in rows:
+        by_probe.setdefault(str(row.get("probe", "unknown")), []).append(row)
+
+    probes: dict[str, Any] = {}
+    for probe, probe_rows in sorted(by_probe.items()):
+        status_counts: dict[str, int] = {}
+        for row in probe_rows:
+            status = str(row.get("status", "UNKNOWN"))
+            status_counts[status] = status_counts.get(status, 0) + 1
+
+        metric_stats = {
+            metric: _stats(_finite_values(probe_rows, metric))
+            for metric in METRICS
+        }
+
+        complete = status_counts.get("COMPLETE", 0)
+        truncated = status_counts.get("TRUNCATED", 0)
+        timeout = status_counts.get("TIMEOUT", 0)
+        if timeout:
+            execution_class = "TIMEOUT"
+        elif truncated:
+            execution_class = "EXECUTION_TRUNCATED"
+        elif complete == len(probe_rows) and complete:
+            execution_class = "EXECUTION_COMPLETE"
+        else:
+            execution_class = "EXECUTION_MIXED"
+
+        probes[probe] = {
+            "runs": len(probe_rows),
+            "status_counts": status_counts,
+            "execution_class": execution_class,
+            "metrics": metric_stats,
+            "behavioral_evaluation": (
+                "NOT_EVALUABLE"
+                if execution_class in {"TIMEOUT", "EXECUTION_TRUNCATED"}
+                else "POTENTIALLY_EVALUABLE"
+            ),
+        }
+
+    return {
+        "analysis_version": "0.1",
+        "mode": "OLLAMA_EXECUTION_PROFILING_ANALYSIS",
+        "source_files": [str(path) for path in paths],
+        "probes": probes,
+        "global_rule": (
+            "Execution completeness is a prerequisite for behavioral evaluation; "
+            "TRUNCATED and TIMEOUT runs are not model-behavior failures."
+        ),
+    }
+
+
+def _fmt(value: Any) -> str:
+    if value is None:
+        return "-"
+    if isinstance(value, float):
+        return f"{value:.3f}"
+    return str(value)
+
+
+def render_text(report: dict[str, Any]) -> str:
+    lines = [
+        "QWEN3 EXECUTION PROFILING ANALYSIS",
+        "=" * 34,
+        "",
+        "Rule: TRUNCATED/TIMEOUT = execution outcome, not behavioral failure.",
+        "",
+    ]
+    for probe, data in report["probes"].items():
+        lines.extend(
+            [
+                f"[{probe}]",
+                f"  runs: {data['runs']}",
+                f"  status: {data['status_counts']}",
+                f"  execution_class: {data['execution_class']}",
+                f"  behavioral_evaluation: {data['behavioral_evaluation']}",
+            ]
+        )
+        for metric, stats in data["metrics"].items():
+            lines.append(
+                f"  {metric}: min={_fmt(stats['min'])} "
+                f"median={_fmt(stats['median'])} max={_fmt(stats['max'])} "
+                f"(n={stats['n']})"
+            )
+        lines.append("")
+    return "\n".join(lines).rstrip() + "\n"
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("files", nargs="+", type=Path, help="Profiler JSON files")
+    parser.add_argument(
+        "--json-out",
+        type=Path,
+        default=None,
+        help="Optional path for the normalized analysis JSON",
+    )
+    parser.add_argument(
+        "--text-out",
+        type=Path,
+        default=None,
+        help="Optional path for the human-readable analysis",
+    )
+    args = parser.parse_args()
+
+    report = analyze(args.files)
+    text = render_text(report)
+    print(text, end="")
+
+    if args.json_out:
+        args.json_out.parent.mkdir(parents=True, exist_ok=True)
+        args.json_out.write_text(
+            json.dumps(report, indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
+    if args.text_out:
+        args.text_out.parent.mkdir(parents=True, exist_ok=True)
+        args.text_out.write_text(text, encoding="utf-8")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
