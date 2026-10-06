@@ -106,6 +106,7 @@ def profile(
     num_predict: int = 128,
     context_path: str = DEFAULT_CONTEXT_PATH,
     t02_path: str = DEFAULT_T02_PATH,
+    repeat: int = 1,
 ) -> dict[str, Any]:
     definitions = _probe_definitions(context_path, t02_path)
     adapter = OllamaAdapter(
@@ -119,87 +120,89 @@ def profile(
 
     results = []
     for probe_name in probes:
-        if probe_name not in definitions:
-            raise ValueError(f"Unknown probe: {probe_name}")
+        for repetition in range(1, repeat + 1):
+            if probe_name not in definitions:
+                raise ValueError(f"Unknown probe: {probe_name}")
 
-        probe = definitions[probe_name]
-        system_prompt = probe["system_prompt"]
-        task = probe["task"]
-        integrity = check_context_integrity(system_prompt, task)
+            probe = definitions[probe_name]
+            system_prompt = probe["system_prompt"]
+            task = probe["task"]
+            integrity = check_context_integrity(system_prompt, task)
 
-        started = time.perf_counter()
+            started = time.perf_counter()
         try:
-            response = adapter.generate(system_prompt, task)
-        except TimeoutError as exc:
-            response = None
-            timeout_error = str(exc)
-        else:
-            timeout_error = None
-        wall_seconds = time.perf_counter() - started
+                response = adapter.generate(system_prompt, task)
+            except TimeoutError as exc:
+                response = None
+                timeout_error = str(exc)
+            else:
+                timeout_error = None
+            wall_seconds = time.perf_counter() - started
 
-        if response is None:
-            metadata: dict[str, Any] = {
-                "model": model,
-                "base_url": base_url,
-                "thinking": thinking,
-                "temperature": temperature,
-                "num_predict": num_predict,
+            if response is None:
+                metadata: dict[str, Any] = {
+                    "model": model,
+                    "base_url": base_url,
+                    "thinking": thinking,
+                    "temperature": temperature,
+                    "num_predict": num_predict,
                 "timeout": True,
                 "error": timeout_error or "timeout",
             }
-            text = ""
-        else:
-            metadata = dict(response.metadata)
-            text = response.text
+                text = ""
+            else:
+                metadata = dict(response.metadata)
+                text = response.text
 
-        status, reason = _generation_status(metadata)
-        results.append({
-            "probe": probe_name,
-            "description": probe["description"],
-            "context_kind": probe["context_kind"],
-            "status": status,
-            "status_reason": reason,
-            "wall_time_seconds": round(wall_seconds, 4),
-            "request": {
+            status, reason = _generation_status(metadata)
+            results.append({
+                "probe": probe_name,
+                "repetition": repetition,
+                "description": probe["description"],
+                "context_kind": probe["context_kind"],
+                "status": status,
+                "status_reason": reason,
+                "wall_time_seconds": round(wall_seconds, 4),
+                "request": {
                 "model": model,
                 "base_url": base_url,
                 "temperature": temperature,
                 "thinking": thinking,
-                "timeout": timeout,
+                    "timeout": timeout,
                 "num_predict": num_predict,
-            },
-            "prompt": {
-                "system_chars": len(system_prompt),
-                "task_chars": len(task),
-                "combined_chars": len(system_prompt) + len(task),
-                "system_sha256": _sha256(system_prompt),
-                "task_sha256": _sha256(task),
-            },
-            "context_integrity": integrity,
-            "generation": {
-                "done": metadata.get("done"),
-                "done_reason": metadata.get("done_reason"),
-                "prompt_eval_count": metadata.get("prompt_eval_count"),
-                "eval_count": metadata.get("eval_count"),
-                "prompt_eval_duration_ns": metadata.get("prompt_eval_duration_ns"),
-                "eval_duration_ns": metadata.get("eval_duration_ns"),
-                "total_duration_ns": metadata.get("total_duration_ns"),
-                "load_duration_ns": metadata.get("load_duration_ns"),
-                "prompt_tokens_per_second": _rate(
+                },
+                "prompt": {
+                    "system_chars": len(system_prompt),
+                    "task_chars": len(task),
+                    "combined_chars": len(system_prompt) + len(task),
+                    "system_sha256": _sha256(system_prompt),
+                    "task_sha256": _sha256(task),
+                },
+                "context_integrity": integrity,
+                "generation": {
+                    "done": metadata.get("done"),
+                    "done_reason": metadata.get("done_reason"),
+                    "prompt_eval_count": metadata.get("prompt_eval_count"),
+                    "eval_count": metadata.get("eval_count"),
+                    "prompt_eval_duration_ns": metadata.get("prompt_eval_duration_ns"),
+                    "eval_duration_ns": metadata.get("eval_duration_ns"),
+                    "total_duration_ns": metadata.get("total_duration_ns"),
+                    "load_duration_ns": metadata.get("load_duration_ns"),
+                    "prompt_tokens_per_second": _rate(
                     metadata.get("prompt_eval_count"),
                     metadata.get("prompt_eval_duration_ns"),
                 ),
-                "generation_tokens_per_second": _rate(
+                    "generation_tokens_per_second": _rate(
                     metadata.get("eval_count"),
                     metadata.get("eval_duration_ns"),
                 ),
-            },
-            "output": {
-                "chars": len(text),
-                "sha256": _sha256(text),
-                "preview": text[:500],
-            },
-        })
+                },
+                "output": {
+                    "chars": len(text),
+                    "sha256": _sha256(text),
+                    "preview": text[:500],
+                },
+            })
 
     payload = {
         "profiling_mode": "OLLAMA_INFERENCE_PROFILING",
@@ -237,7 +240,10 @@ def main() -> None:
     parser.add_argument("--num-predict", type=int, default=128)
     parser.add_argument("--context-path", default=DEFAULT_CONTEXT_PATH)
     parser.add_argument("--t02-path", default=DEFAULT_T02_PATH)
+    parser.add_argument("--repeat", type=int, default=1, help="Repeat each probe N times to expose runtime variability.")
     args = parser.parse_args()
+    if args.repeat < 1:
+        parser.error("--repeat must be >= 1")
 
     probes = ["minimal", "json", "full-context", "t02"] if "all" in args.probe else args.probe
     payload = profile(
@@ -251,6 +257,7 @@ def main() -> None:
         num_predict=args.num_predict,
         context_path=args.context_path,
         t02_path=args.t02_path,
+        repeat=args.repeat,
     )
 
     summary = []
@@ -261,7 +268,9 @@ def main() -> None:
             "wall_seconds": item["wall_time_seconds"],
             "prompt_chars": item["prompt"]["combined_chars"],
             "prompt_tokens": item["generation"]["prompt_eval_count"],
+            "prompt_seconds": (item["generation"]["prompt_eval_duration_ns"] or 0) / 1_000_000_000,
             "output_tokens": item["generation"]["eval_count"],
+            "generation_seconds": (item["generation"]["eval_duration_ns"] or 0) / 1_000_000_000,
             "output_tokens_per_second": item["generation"]["generation_tokens_per_second"],
             "done_reason": item["generation"]["done_reason"],
         })
