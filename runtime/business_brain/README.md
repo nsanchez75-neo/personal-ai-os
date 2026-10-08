@@ -114,3 +114,18 @@ python -m runtime.business_brain.profiler `
   --num-predict 128 `
   --output evaluations/results/OLLAMA-PROFILE-QWEN3-8B.json
 ```
+
+
+## T02 Semantic Adjudication
+
+After the deterministic T02 evaluator, run the provider-neutral semantic adjudicator to inspect comparative Value of Information and hypothesis/experiment alignment. It does not use an LLM and does not replace the deterministic gate.
+
+Command: `python -m runtime.business_brain.t02_semantic_adjudicator evaluations/results/BUSINESS-BRAIN-T02-COMPACT-QWEN3-8B-640.json --json-out evaluations/results/BUSINESS-BRAIN-T02-COMPACT-QWEN3-8B-640-SEMANTIC.json --text-out evaluations/results/BUSINESS-BRAIN-T02-COMPACT-QWEN3-8B-640-SEMANTIC.md`
+
+Interpretation:
+- `PASS`: no material semantic gap detected.
+- `PARTIAL`: semantic gap or under-specification detected; not equivalent to model failure.
+- `FAIL`: direct semantic contradiction.
+- `INVALID_EXECUTION`: context/generation/JSON gate failure; do not score it as model behavior.
+
+The adjudicator records observed regression IDs without mutating the Business Brain or model profile.
