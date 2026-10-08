@@ -93,3 +93,11 @@
 - Preserved provider-neutral fixture behavior while preventing harness assertions from being injected into real LLM prompts.
 - Canonicalized the previously manual T02-COMPACT experiment as `evaluations/T02-COMPACT-v0.1.md`.
 - T02-COMPACT remains OPEN until a complete, context-valid, structurally valid real-model run is obtained.
+
+
+## 2026-10-08 — T02 semantic adjudication
+- Added provider-neutral semantic adjudication for T02-COMPACT.
+- Added explicit VoI comparison checks and hypothesis/experiment alignment checks.
+- Added regression catalog entries for `REG-VOI-UNDEREXPLICIT` and `REG-HYPOTHESIS-EXPERIMENT-MISMATCH`.
+- Added deterministic unit tests.
+- This change does not claim new Qwen3 qualification; it prepares the next adjudication of the already completed T02-640 run.
