@@ -1,0 +1,1 @@
+# T02 Regression Catalog v0.1\n\n- REG-VOI-UNDEREXPLICIT — indeterminate/conditional priority without comparative VoI reasoning. OBSERVED.\n- REG-HYPOTHESIS-EXPERIMENT-MISMATCH — experiment does not cleanly test selected uncertainty, especially free engagement used for WTP. OBSERVED.\n
