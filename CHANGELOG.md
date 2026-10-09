@@ -101,3 +101,11 @@
 - Added regression catalog entries for `REG-VOI-UNDEREXPLICIT` and `REG-HYPOTHESIS-EXPERIMENT-MISMATCH`.
 - Added deterministic unit tests.
 - This change does not claim new Qwen3 qualification; it prepares the next adjudication of the already completed T02-640 run.
+
+
+## 2026-10-08 — Integrated Business Brain evaluation and learning ledger
+- Added a unified post-run pipeline that runs behavioral evaluation, semantic adjudication and explicit VoI diagnostics against a preserved runner artifact.
+- Added append-only, hash-linked JSONL learning records with regression IDs, diagnosis, next action and sandbox-gate status.
+- Added deterministic VoI factor diagnostics and regression tests for explicit reasoning, missing reasoning and unsupported automatic B-priority.
+- Enforced the invariant that the learning loop cannot mutate production; promotion requires human approval.
+- Documented reproducible local evaluation. This change does not claim new Qwen qualification or existing cloud-provider support; the runner currently supports fixture and Ollama.
