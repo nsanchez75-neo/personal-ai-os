@@ -100,6 +100,33 @@ class SemanticAdjudicatorTests(unittest.TestCase):
         self.assertEqual(result["status"], "INVALID_EXECUTION")
         self.assertIn("raw output is not valid JSON", result["reason"])
 
+    def test_indeterminate_priority_is_not_mislabeled_as_alignment_error(self):
+        data = base()
+        data["uncertainties"][1]["decision_impact"] = "Willingness to pay remains uncertain."
+        data["experiment"] = {
+            "tests": "Offer a free diagnostic or trial and discuss whether customers might pay.",
+            "observable_behavior": "Customers engage, give feedback, or express continued interest.",
+        }
+        result = adjudicate_payload(payload(data))
+        alignment = result["semantic_adjudication"]["experiment_alignment"]
+        self.assertTrue(alignment["explicitly_indeterminate"])
+        self.assertFalse(alignment["payment_behavior_detected"])
+        self.assertEqual(alignment["status"], "PARTIAL")
+        self.assertIn("observable behavior", alignment["reason"])
+        self.assertNotIn("No single uncertainty is selected", alignment["reason"])
+
+    def test_payment_mentioned_but_not_observable_is_not_counted_as_payment(self):
+        data = base()
+        data["uncertainties"][1]["decision_impact"] = "Willingness to pay is unknown."
+        data["experiment"] = {
+            "tests": "Discuss payment and offer a free trial.",
+            "observable_behavior": "Customers complete the trial and provide feedback.",
+        }
+        result = adjudicate_payload(payload(data))
+        alignment = result["semantic_adjudication"]["experiment_alignment"]
+        self.assertFalse(alignment["payment_behavior_detected"])
+        self.assertEqual(alignment["status"], "PARTIAL")
+
 
 if __name__ == "__main__":
     unittest.main()
