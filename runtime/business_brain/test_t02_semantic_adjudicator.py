@@ -18,11 +18,13 @@ def payload(data):
 
 
 def base():
+    uncertainties = [
+        {"id": key, "decision_impact": "x", "current_evidence": "x"}
+        for key in "ABCDE"
+    ]
+    uncertainties[1]["decision_impact"] = "Willingness to pay is uncertain."
     return {
-        "uncertainties": [
-            {"id": key, "decision_impact": "x", "current_evidence": "x"}
-            for key in "ABCDE"
-        ],
+        "uncertainties": uncertainties,
         "priority": {
             "status": "Indeterminate",
             "selected": None,
