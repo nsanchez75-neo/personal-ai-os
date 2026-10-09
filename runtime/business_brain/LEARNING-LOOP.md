@@ -35,3 +35,29 @@ The input is read-only. The report includes source and raw-output SHA-256 hashes
 ## Current limitations
 
 VoI detection is deterministic diagnostic support, not a complete semantic proof. It requires explicit factors in the priority rationale and can miss paraphrases. PARTIAL or FAIL requests review/targeted experiments, not automatic prompt mutation. Model qualification and Business Brain qualification remain separate.
+
+
+## Controlled repair lifecycle
+
+The `repair_workflow` CLI implements a gated lifecycle:
+
+1. `propose`: select a supported regression from a learning report, record source hashes, target baseline hash, component mapping and diagnosis.
+2. `stage`: place a human-authored Markdown candidate in `evolution/sandbox/<proposal-id>/candidate.md`. Candidate content is data; the system never executes model-generated text or patches.
+3. `gate`: run a fixed allowlisted Python unittest suite, record command/output, candidate hash and pass/fail in the proposal and append-only audit ledger.
+4. `promote`: require a passing gate, unchanged baseline, unchanged candidate, allowlisted Markdown target, named approver and exact approval phrase `PROMOTE <proposal-id> <candidate-sha256>`.
+
+Only the final explicit `promote` command writes to a target, and target writes are restricted to Markdown files under `brains/`, `skills/`, `evaluations/`, `workflows/` or `knowledge/`. Runtime Python, shell scripts, path traversal and arbitrary test commands are not promotable. Model output cannot choose commands or be applied as an executable patch. Candidate content should be reviewed by a human before approval.
+
+### CLI example
+
+```powershell
+python -m runtime.business_brain.repair_workflow propose evaluations/results/BUSINESS-BRAIN-T02-COMPACT-QWEN3-8B-640-LEARNING.json --target skills/business-reasoning.md --out evolution/repairs/voi-repair.json
+python -m runtime.business_brain.repair_workflow stage evolution/repairs/voi-repair.json --candidate path/to/human-reviewed-candidate.md
+python -m runtime.business_brain.repair_workflow gate evolution/repairs/voi-repair.json
+# Only after reviewing candidate content and a PASS gate:
+python -m runtime.business_brain.repair_workflow promote evolution/repairs/voi-repair.json --approver "Full Name" --approval-phrase "PROMOTE <proposal-id> <candidate-sha256>"
+```
+
+Replace `skills/business-reasoning.md` with an existing intended Markdown target in the repository, and replace the placeholders in the approval phrase with the values in the proposal. The proposal command captures the current baseline hash; concurrent edits invalidate promotion.
+
+The fixed regression gate checks the established runtime/evaluator unit tests. It does not prove business quality for arbitrary prose changes, so scenario-level evaluation and human review remain required before promoting a substantive skill/prompt revision. The gate is a minimum safety control, not a claim of semantic correctness.
