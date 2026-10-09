@@ -1,4 +1,5 @@
 import json
+import unittest
 
 from runtime.business_brain.t02_semantic_adjudicator import adjudicate_payload
 
@@ -34,65 +35,71 @@ def base():
     }
 
 
-def test_voi_partial():
-    assert adjudicate_payload(payload(base()))["semantic_adjudication"]["voi"]["status"] == "PARTIAL"
+class SemanticAdjudicatorTests(unittest.TestCase):
+    def test_voi_partial(self):
+        self.assertEqual(
+            adjudicate_payload(payload(base()))["semantic_adjudication"]["voi"]["status"],
+            "PARTIAL",
+        )
+
+    def test_alignment_partial(self):
+        self.assertEqual(
+            adjudicate_payload(payload(base()))["semantic_adjudication"]["experiment_alignment"]["status"],
+            "PARTIAL",
+        )
+
+    def test_aligned_pass(self):
+        data = base()
+        data["priority"] = {
+            "selected": "B",
+            "reason": (
+                "Compare decision impact, information cost, reversibility and dependencies; "
+                "B has the highest decision-changing value."
+            ),
+        }
+        data["experiment"] = {
+            "tests": "Present a concrete paid offer and observe payment or rejection.",
+            "observable_behavior": "Payment or rejection.",
+        }
+        self.assertEqual(adjudicate_payload(payload(data))["status"], "PASS")
+
+    def test_reads_raw_outputs_fallback(self):
+        data = base()
+        wrapped = {
+            "results": [{
+                "metadata": {
+                    "context_integrity": {"status": "CLEAR"},
+                    "generation_gate": {"status": "COMPLETE"},
+                    "json_gate": {"status": "VALID"},
+                }
+            }],
+            "raw_outputs": [{"text": json.dumps(data)}],
+        }
+        result = adjudicate_payload(wrapped)
+        self.assertEqual(result["status"], "PARTIAL")
+        self.assertIn("semantic_adjudication", result)
+
+    def test_missing_raw_output_returns_structured_invalid_execution(self):
+        wrapped = {
+            "results": [{
+                "metadata": {
+                    "context_integrity": {"status": "CLEAR"},
+                    "generation_gate": {"status": "COMPLETE"},
+                    "json_gate": {"status": "VALID"},
+                }
+            }]
+        }
+        result = adjudicate_payload(wrapped)
+        self.assertEqual(result["status"], "INVALID_EXECUTION")
+        self.assertEqual(result["reason"], "raw model output missing")
+
+    def test_invalid_json_returns_structured_invalid_execution(self):
+        wrapped = payload(base())
+        wrapped["results"][0]["raw_output"] = "{not json"
+        result = adjudicate_payload(wrapped)
+        self.assertEqual(result["status"], "INVALID_EXECUTION")
+        self.assertIn("raw output is not valid JSON", result["reason"])
 
 
-def test_alignment_partial():
-    assert adjudicate_payload(payload(base()))["semantic_adjudication"]["experiment_alignment"]["status"] == "PARTIAL"
-
-
-def test_aligned_pass():
-    data = base()
-    data["priority"] = {
-        "selected": "B",
-        "reason": (
-            "Compare decision impact, information cost, reversibility and dependencies; "
-            "B has the highest decision-changing value."
-        ),
-    }
-    data["experiment"] = {
-        "tests": "Present a concrete paid offer and observe payment or rejection.",
-        "observable_behavior": "Payment or rejection.",
-    }
-    assert adjudicate_payload(payload(data))["status"] == "PASS"
-
-
-def test_reads_raw_outputs_fallback():
-    data = base()
-    wrapped = {
-        "results": [{
-            "metadata": {
-                "context_integrity": {"status": "CLEAR"},
-                "generation_gate": {"status": "COMPLETE"},
-                "json_gate": {"status": "VALID"},
-            }
-        }],
-        "raw_outputs": [{"text": json.dumps(data)}],
-    }
-    result = adjudicate_payload(wrapped)
-    assert result["status"] == "PARTIAL"
-    assert "semantic_adjudication" in result
-
-
-def test_missing_raw_output_returns_structured_invalid_execution():
-    wrapped = {
-        "results": [{
-            "metadata": {
-                "context_integrity": {"status": "CLEAR"},
-                "generation_gate": {"status": "COMPLETE"},
-                "json_gate": {"status": "VALID"},
-            }
-        }]
-    }
-    result = adjudicate_payload(wrapped)
-    assert result["status"] == "INVALID_EXECUTION"
-    assert result["reason"] == "raw model output missing"
-
-
-def test_invalid_json_returns_structured_invalid_execution():
-    wrapped = payload(base())
-    wrapped["results"][0]["raw_output"] = "{not json"
-    result = adjudicate_payload(wrapped)
-    assert result["status"] == "INVALID_EXECUTION"
-    assert "raw output is not valid JSON" in result["reason"]
+if __name__ == "__main__":
+    unittest.main()
