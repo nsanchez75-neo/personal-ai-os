@@ -93,43 +93,60 @@ def voi(data: dict[str, Any]) -> dict[str, Any]:
 
 
 def alignment(data: dict[str, Any]) -> dict[str, Any]:
-    experiment = text(data.get("experiment") or {})
+    experiment_data = data.get("experiment") or {}
+    experiment = text(experiment_data)
+    observable = text(experiment_data.get("observable_behavior", "")) if isinstance(experiment_data, dict) else ""
     all_text = text(data)
-    selected = str((data.get("priority") or {}).get("selected", "")).upper()
+    priority_data = data.get("priority") or {}
+    selected = str(priority_data.get("selected", "")).upper()
+    explicitly_indeterminate = has(text(priority_data), INDET) or has(
+        str(priority_data.get("status", "")), INDET
+    )
     if not experiment.strip():
         return {"status": "FAIL", "selected": selected, "reason": "Experiment is empty."}
-    payment = has(experiment, PAY)
+
+    # Only count economic behavior when it is observable, not when merely discussed
+    # in the experiment description or listed as an illegitimate conclusion.
+    payment_observable = has(observable, PAY)
     low_commitment = has(experiment, LOW)
     mentions_wtp = has(all_text, WTP)
     status = "PASS"
     reasons = []
-    if selected not in set("ABCDE"):
+
+    if selected not in set("ABCDE") and not explicitly_indeterminate:
         status = "PARTIAL"
-        reasons.append("No single uncertainty is selected.")
-    if mentions_wtp and low_commitment and not payment:
+        reasons.append("No uncertainty is selected and no explicit indeterminate decision is recorded.")
+
+    if mentions_wtp and low_commitment and not payment_observable:
         status = "PARTIAL"
         reasons.append(
-            "WTP is discussed but the experiment uses free/low-commitment engagement "
-            "instead of economic commitment."
+            "WTP is discussed, but the observable behavior is free/low-commitment engagement "
+            "rather than payment or another explicit economic commitment."
         )
-    if selected == "B" and not payment:
+
+    if selected == "B" and not payment_observable:
         status = "PARTIAL" if low_commitment else "FAIL"
         reasons.append(
-            "B is willingness to pay but no direct payment/economic commitment is observable."
+            "B is willingness to pay, but the observable behavior does not directly measure "
+            "payment/economic commitment."
         )
-    if selected == "D" and payment and not has(experiment, (r"cost", r"coste", r"margin", r"economics")):
+
+    if selected == "D" and payment_observable and not has(
+        observable + " " + experiment, (r"cost", r"coste", r"margin", r"economics")
+    ):
         status = "PARTIAL"
         reasons.append("Payment informs demand but does not directly observe delivery economics for D.")
+
     if not reasons:
         reasons.append("Observable behavior is aligned with the selected uncertainty.")
     return {
         "status": status,
         "selected": selected,
-        "payment_behavior_detected": payment,
+        "explicitly_indeterminate": explicitly_indeterminate,
+        "payment_behavior_detected": payment_observable,
         "low_commitment_signal_detected": low_commitment,
         "reason": " ".join(reasons),
     }
-
 
 def adjudicate_payload(payload: dict[str, Any]) -> dict[str, Any]:
     status, reason = gate(payload)
