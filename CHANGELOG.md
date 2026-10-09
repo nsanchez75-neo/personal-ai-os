@@ -109,3 +109,11 @@
 - Added deterministic VoI factor diagnostics and regression tests for explicit reasoning, missing reasoning and unsupported automatic B-priority.
 - Enforced the invariant that the learning loop cannot mutate production; promotion requires human approval.
 - Documented reproducible local evaluation. This change does not claim new Qwen qualification or existing cloud-provider support; the runner currently supports fixture and Ollama.
+
+
+## 2026-10-09 — Controlled Business Brain repair and promotion
+- Added repair proposals linked to source report hashes and known regression/component mappings.
+- Added sandbox-only Markdown candidate staging, fixed regression gate, stale-baseline and candidate-hash checks.
+- Added explicit human approval phrase and append-only repair audit before any allowlisted Markdown target promotion.
+- Blocked path traversal, arbitrary test commands, executable patch application, and runtime-code promotion.
+- Added lifecycle safety regression tests and included them in pull-request CI.

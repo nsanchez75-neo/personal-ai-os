@@ -16,7 +16,7 @@ jobs:
         with:
           python-version: "3.11"
       - name: Run Business Brain unit tests
-        run: python -m unittest runtime.business_brain.test_t02_semantic_adjudicator runtime.business_brain.test_learning_loop runtime.business_brain.test_voi_analysis -v
+        run: python -m unittest runtime.business_brain.test_t02_semantic_adjudicator runtime.business_brain.test_learning_loop runtime.business_brain.test_voi_analysis runtime.business_brain.test_repair_workflow -v
       - name: Run provider-neutral harness
         run: |
           python -m runtime.business_brain.runner
