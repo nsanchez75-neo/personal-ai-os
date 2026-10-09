@@ -211,7 +211,7 @@ def main() -> int:
     for output_path in (args.json_out, args.text_out):
         if output_path:
             output_path.parent.mkdir(parents=True, exist_ok=True)
-            output_path.write_text(rendered + "\\n", encoding="utf-8")
+            output_path.write_text(rendered + "\n", encoding="utf-8")
     return 0 if report.get("status") not in {"INVALID_EXECUTION"} else 2
 
 
