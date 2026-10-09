@@ -15,6 +15,7 @@ from typing import Any
 
 from runtime.business_brain.t02_behavioral_evaluator import evaluate_payload
 from runtime.business_brain.t02_semantic_adjudicator import adjudicate_payload
+from runtime.business_brain.voi_analysis import analyze_voi
 
 
 def _raw_text(payload: dict[str, Any]) -> str:
@@ -62,6 +63,12 @@ def evaluate_run(payload: dict[str, Any], source_bytes: bytes) -> dict[str, Any]
     behavioral = evaluate_payload(payload)
     semantic = adjudicate_payload(payload)
     raw = _raw_text(payload)
+    model_data = {}
+    try:
+        model_data = json.loads(raw) if raw else {}
+    except json.JSONDecodeError:
+        model_data = {}
+    voi_diagnostic = analyze_voi(model_data) if isinstance(model_data, dict) else analyze_voi({})
     provider = payload.get("provider", "unknown")
     model = payload.get("model", "unknown")
     learning_items = _learning_items(behavioral, semantic)
@@ -81,13 +88,14 @@ def evaluate_run(payload: dict[str, Any], source_bytes: bytes) -> dict[str, Any]
         "evaluation": {
             "behavioral": behavioral,
             "semantic": semantic,
+            "value_of_information": voi_diagnostic,
             "overall": (
                 "INVALID_EXECUTION"
                 if "INVALID_EXECUTION" in {behavioral.get("status"), semantic.get("status")}
                 else "FAIL"
                 if "FAIL" in {behavioral.get("status"), semantic.get("status")}
                 else "CONDITIONAL"
-                if learning_items or behavioral.get("status") == "CONDITIONAL_PASS" or semantic.get("status") == "PARTIAL"
+                if learning_items or behavioral.get("status") == "CONDITIONAL_PASS" or semantic.get("status") == "PARTIAL" or voi_diagnostic.get("status") != "PASS"
                 else "PASS"
             ),
         },
@@ -136,6 +144,7 @@ def main() -> int:
         "overall": report["evaluation"]["overall"],
         "behavioral": report["evaluation"]["behavioral"].get("status"),
         "semantic": report["evaluation"]["semantic"].get("status"),
+        "voi": report["evaluation"]["value_of_information"].get("status"),
         "learning_items": len(report["learning"]["items"]),
         "next_stage": report["learning"]["next_stage"],
         "production_mutation_allowed": False,
