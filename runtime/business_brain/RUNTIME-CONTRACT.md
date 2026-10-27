@@ -73,3 +73,21 @@ For every candidate error:
 - FAIL: runtime contract cannot be trusted for the requested operation.
 
 The deterministic checks are guardrails, not substitutes for semantic model evaluation.
+
+## Deterministic consistency checks
+
+The runner compares numeric parameters in model output with the evidence supplied
+by the selected scenario. Unsupported numeric claims, strong unsupported
+inferences, and experiments that expose customers to known false claims block a
+passing result.
+
+For Scenario 08 (Pricing), the runtime also blocks proposed pricing actions or
+tests when their terms are absent from the case, including discounts, free
+trials, tiered pricing, pricing experiments, and direct price movements. An
+explicit refusal to propose those actions is allowed. This check is currently
+scoped to Scenario 08 and does not replace real-model behavioral qualification.
+Findings are recorded as REG-UNAPPROVED-PRICING-ACTION by the learning loop.
+
+A runtime block means the output needs review; it does not mean the model
+followed the skill correctly. Model qualification remains open until the
+behavioral scenarios pass or are explicitly classified with evidence.

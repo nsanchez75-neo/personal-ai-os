@@ -30,7 +30,9 @@ def _raw_text(payload: dict[str, Any]) -> str:
     return ""
 
 
-def _learning_items(behavioral: dict[str, Any], semantic: dict[str, Any]) -> list[dict[str, Any]]:
+def _learning_items(
+    behavioral: dict[str, Any], semantic: dict[str, Any], voi: dict[str, Any]
+) -> list[dict[str, Any]]:
     items: list[dict[str, Any]] = []
     for finding in behavioral.get("findings", []):
         if finding.get("status") in {"FAIL", "PARTIAL"}:
@@ -51,6 +53,15 @@ def _learning_items(behavioral: dict[str, Any], semantic: dict[str, Any]) -> lis
             "diagnosis": regression.get("reason", ""),
             "next_action": "Trace to the responsible prompt/skill/runtime item; propose a sandbox-only repair.",
         })
+    if voi.get("status") in {"FAIL", "PARTIAL"}:
+        items.append({
+            "id": "REG-VOI-UNDEREXPLICIT",
+            "source": "voi_analysis",
+            "severity": voi.get("status"),
+            "evidence": json.dumps(voi.get("factor_evidence", {}), ensure_ascii=False),
+            "diagnosis": voi.get("reason", "VoI diagnostic is incomplete."),
+            "next_action": "Create a targeted sandbox experiment for the missing core VoI factors.",
+        })
     # Keep separate evidence sources, but avoid duplicate item records in one run.
     deduped: dict[tuple[str, str], dict[str, Any]] = {}
     for item in items:
@@ -59,21 +70,106 @@ def _learning_items(behavioral: dict[str, Any], semantic: dict[str, Any]) -> lis
     return list(deduped.values())
 
 
+def _is_t02_payload(payload: dict[str, Any]) -> bool:
+    for result in payload.get("results") or []:
+        if not isinstance(result, dict):
+            continue
+        title = str(result.get("title") or "").lower()
+        if result.get("scenario_id") == "02" and (
+            "value of information" in title or "uncertainty prioritization" in title
+        ):
+            return True
+    return False
+
+
+def _evaluate_general_payload(payload: dict[str, Any]) -> dict[str, Any]:
+    results = [item for item in (payload.get("results") or []) if isinstance(item, dict)]
+    if not results:
+        return {"evaluator_version": "runner-status-0.1", "status": "INVALID_EXECUTION", "findings": []}
+
+    statuses = {str(item.get("status", "UNKNOWN")).upper() for item in results}
+    invalid = {"TIMEOUT", "TRUNCATED", "INVALID_JSON", "INVALID_CONTEXT", "GENERATION_INCOMPLETE", "INVALID_EXECUTION"}
+    if statuses & invalid:
+        status = "INVALID_EXECUTION"
+    elif "FAIL" in statuses:
+        status = "FAIL"
+    elif "PARTIAL" in statuses or "CONDITIONAL_PASS" in statuses:
+        status = "PARTIAL"
+    elif statuses == {"PASS"}:
+        status = "PASS"
+    else:
+        status = "INVALID_EXECUTION"
+
+    findings: list[dict[str, Any]] = []
+    for result in results:
+        scenario_id = str(result.get("scenario_id", "unknown"))
+        for index, assertion in enumerate(result.get("assertions") or []):
+            if not isinstance(assertion, dict) or str(assertion.get("status", "")).upper() == "PASS":
+                continue
+            findings.append({
+                "id": f"assertion:{scenario_id}:{index}",
+                "status": str(assertion.get("status", "OBSERVED")).upper(),
+                "evidence": assertion.get("reason", ""),
+                "reason": assertion.get("assertion", "Runner assertion was not fully satisfied."),
+            })
+
+        consistency = (result.get("metadata") or {}).get("consistency_check") or {}
+        for key, regression_id in (
+            ("unsupported_numeric_claims", "REG-UNSUPPORTED-NUMERIC-ASSUMPTION"),
+            ("deceptive_experiment_exposure", "REG-DECEPTIVE-EXPERIMENT-EXPOSURE"),
+            ("unapproved_pricing_actions", "REG-UNAPPROVED-PRICING-ACTION"),
+        ):
+            evidence = consistency.get(key) or []
+            if evidence:
+                findings.append({
+                    "id": regression_id,
+                    "status": "FAIL",
+                    "evidence": json.dumps(evidence, ensure_ascii=False),
+                    "reason": "A runtime consistency guardrail detected unsupported or ethically unsafe experiment content.",
+                })
+
+    return {"evaluator_version": "runner-status-0.1", "status": status, "findings": findings}
+
+
 def evaluate_run(payload: dict[str, Any], source_bytes: bytes) -> dict[str, Any]:
-    behavioral = evaluate_payload(payload)
-    semantic = adjudicate_payload(payload)
+    is_t02 = _is_t02_payload(payload)
     raw = _raw_text(payload)
     model_data = {}
     try:
         model_data = json.loads(raw) if raw else {}
     except json.JSONDecodeError:
         model_data = {}
-    voi_diagnostic = analyze_voi(model_data) if isinstance(model_data, dict) else analyze_voi({})
+
+    if is_t02:
+        behavioral = evaluate_payload(payload)
+        semantic = adjudicate_payload(payload)
+        voi_diagnostic = analyze_voi(model_data) if isinstance(model_data, dict) else analyze_voi({})
+    else:
+        behavioral = _evaluate_general_payload(payload)
+        semantic = {"status": "NOT_APPLICABLE", "reason": "T02 semantic adjudication applies only to the Value of Information scenario."}
+        voi_diagnostic = {"status": "NOT_APPLICABLE", "reason": "Value of Information scoring applies only to the T02 scenario."}
     provider = payload.get("provider", "unknown")
     model = payload.get("model", "unknown")
-    learning_items = _learning_items(behavioral, semantic)
+    learning_items = _learning_items(behavioral, semantic, voi_diagnostic)
     now = datetime.now(timezone.utc).isoformat()
     run_id = hashlib.sha256(source_bytes).hexdigest()[:16]
+    if is_t02:
+        overall = (
+            "INVALID_EXECUTION"
+            if "INVALID_EXECUTION" in {behavioral.get("status"), semantic.get("status")}
+            else "FAIL"
+            if "FAIL" in {behavioral.get("status"), semantic.get("status")}
+            else "CONDITIONAL"
+            if learning_items or behavioral.get("status") == "CONDITIONAL_PASS" or semantic.get("status") == "PARTIAL" or voi_diagnostic.get("status") != "PASS"
+            else "PASS"
+        )
+    else:
+        overall = (
+            "INVALID_EXECUTION" if behavioral.get("status") == "INVALID_EXECUTION"
+            else "FAIL" if behavioral.get("status") == "FAIL"
+            else "CONDITIONAL" if behavioral.get("status") == "PARTIAL" or learning_items
+            else "PASS"
+        )
     return {
         "schema_version": "1.0",
         "run_id": run_id,
@@ -89,15 +185,7 @@ def evaluate_run(payload: dict[str, Any], source_bytes: bytes) -> dict[str, Any]
             "behavioral": behavioral,
             "semantic": semantic,
             "value_of_information": voi_diagnostic,
-            "overall": (
-                "INVALID_EXECUTION"
-                if "INVALID_EXECUTION" in {behavioral.get("status"), semantic.get("status")}
-                else "FAIL"
-                if "FAIL" in {behavioral.get("status"), semantic.get("status")}
-                else "CONDITIONAL"
-                if learning_items or behavioral.get("status") == "CONDITIONAL_PASS" or semantic.get("status") == "PARTIAL" or voi_diagnostic.get("status") != "PASS"
-                else "PASS"
-            ),
+            "overall": overall,
         },
         "learning": {
             "items": learning_items,

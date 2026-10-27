@@ -52,6 +52,13 @@ Important controls include:
 - independent repair verification;
 - internal consistency checks.
 
+## Deterministic output checks
+
+The runtime rejects unsupported numeric parameters and unsafe experiment
+content. Scenario 08 also rejects unapproved pricing actions absent from its
+case facts. These checks block a passing runner result but do not qualify the
+model's behavior; real-model evaluation remains a separate gate.
+
 ## Qualification
 
 See:
