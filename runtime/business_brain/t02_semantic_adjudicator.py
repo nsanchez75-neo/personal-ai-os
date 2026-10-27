@@ -73,22 +73,101 @@ def extract_raw_output(payload: dict[str, Any]) -> tuple[str | None, str | None]
         return None, "raw model output missing"
     return raw, None
 
-
 def voi(data: dict[str, Any]) -> dict[str, Any]:
     priority = data.get("priority") or {}
     priority_text = text(priority)
-    hits = [name for name, patterns in FACTORS.items() if has(priority_text, patterns)]
+    hits = [
+        name
+        for name, patterns in FACTORS.items()
+        if has(priority_text, patterns)
+    ]
     indeterminate = has(priority_text, INDET)
     selected = str(priority.get("selected", "")).upper()
-    status = "PASS" if len(hits) >= 4 else "PARTIAL"
+    reason = str(priority.get("reason", ""))
+
+    uncertainty_ids = set(
+        re.findall(r"(?<![A-Z])([A-E])(?![A-Z])", reason.upper())
+    )
+    available_uncertainty_ids = {
+        str(item.get("id", "")).upper()
+        for item in data.get("uncertainties", [])
+        if isinstance(item, dict) and str(item.get("id", "")).upper() in "ABCDE"
+    }
+    all_uncertainties_referenced = (
+        len(available_uncertainty_ids) >= 2
+        and has(reason, (r"\ball(?: the)? uncertainties\b", r"\beach uncertainty\b"))
+    )
+    compares_uncertainties = len(uncertainty_ids) >= 2 or all_uncertainties_referenced
+
+    # Require an explicit comparative or contrastive relationship,
+    # not merely a list of factors or uncertainty labels.
+    comparative_patterns = (
+        r"\bmore\b.{1,160}\bthan\b",
+        r"\bless\b.{1,160}\bthan\b",
+        r"\b(higher|lower|greater|smaller|larger|earlier|cheaper)\b.{1,160}\bthan\b",
+        r"\bcompared\s+(with|to)\b",
+        r"\b(whereas|while|unlike|in contrast to)\b",
+        r"\b(outweighs?|dominates|takes precedence over)\b",
+        r"\bprioriti[sz]e\b.{1,160}\bover\b",
+        r"\btrade[- ]off\b",
+        r"\b(comparable|similar|equivalent)\b.{1,160}\b(across|among|between)\b",
+        r"\bnot (clearly )?differentiated\b",
+    )
+    comparative_language = has(reason, comparative_patterns)
+    rationale = has(
+        reason,
+        (
+            r"\bbecause\b", r"\bsince\b", r"\bdue to\b", r"\bso that\b",
+            r"\btherefore\b", r"\bwhich means\b",
+        ),
+    )
+    # Also accept an explicit comparison across all uncertainties when several
+    # VoI factors support it, even if the reason does not repeat each uncertainty ID.
+    broad_comparison = all_uncertainties_referenced and has(
+        reason,
+        (
+            r"\b(comparable|similar|equivalent)\b.{1,160}\b(across|among|between)\b",
+            r"\bnot (clearly )?differentiated\b",
+        ),
+    ) and len(hits) >= 4
+    comparative_reasoning = comparative_language and (rationale or broad_comparison)
+
+    unresolved_evidence = has(
+        reason,
+        (
+            r"\binsufficient\b.{0,80}\b(information|evidence|data)\b",
+            r"\b(lack|missing|unknown|unavailable|not provided|not yet known)\b"
+            r".{0,80}\b(evidence|data|information|impact|cost|reversib|dependenc|result)\b",
+            r"\bcannot (establish|determine|rank|distinguish)\b",
+            r"\b(available information|evidence) does not support a unique priority\b",
+            r"\bremain(s|) unknown\b",
+        ),
+    )
+    reasoned_indeterminate = indeterminate and unresolved_evidence and (
+        rationale or broad_comparison
+    )
+
+    if len(hits) >= 4 and compares_uncertainties and (
+        comparative_reasoning or reasoned_indeterminate
+    ):
+        status = "PASS"
+    else:
+        status = "PARTIAL"
+
     if selected in {"B", "D"} and len(hits) < 2:
         status = "FAIL"
+
     return {
         "status": status,
         "factors_detected": hits,
         "selected": selected,
         "indeterminate_detected": indeterminate,
-        "reason": "Detected VoI factors: " + (", ".join(hits) if hits else "none"),
+        "uncertainties_referenced": sorted(
+            uncertainty_ids
+            | (available_uncertainty_ids if all_uncertainties_referenced else set())
+        ),
+        "comparative_reasoning_detected": comparative_reasoning,
+        "reason": "Detected VoI factors: " + (", ".join(hits) or "none"),
     }
 
 

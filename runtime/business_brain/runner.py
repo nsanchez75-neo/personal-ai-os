@@ -9,13 +9,13 @@ from pathlib import Path
 from runtime.business_brain.context import build_context
 from runtime.business_brain.adapters.fixture import FixtureAdapter
 from runtime.business_brain.adapters.ollama import OllamaAdapter
-from runtime.business_brain.models import Scenario
+from runtime.business_brain.models import Scenario, AssertionResult
 from runtime.business_brain.evaluator import evaluate_scenario
 from runtime.business_brain.consistency import check_runtime_output
 
 
 PLACEHOLDER_MARKERS = ("[PEGA AQUÍ", "[PASTE HERE", "TODO_SYSTEM_PROMPT", "TODO_SCENARIO")
-EXPECTED_CONTEXT_MARKERS = ("BUSINESS BRAIN", "RUNTIME CONTRACT")
+EXPECTED_CONTEXT_MARKERS = ("BUSINESS BRAIN", "BUSINESS MODEL SKILL", "RUNTIME CONTRACT")
 
 
 def check_context_integrity(system_prompt, scenario_input):
@@ -61,6 +61,25 @@ def load_scenarios(path):
     return out
 
 
+def enforce_runtime_guardrails(result, consistency):
+    violations = []
+    for key in (
+        "unsupported_numeric_claims",
+        "epistemic_risk_phrases",
+        "deceptive_experiment_exposure",
+        "unapproved_pricing_actions",
+    ):
+        violations.extend(consistency.get(key, []))
+    if violations:
+        result.status = "FAIL"
+        result.assertion_results.append(AssertionResult(
+            "runtime_guardrails",
+            "FAIL",
+            "; ".join(violations),
+        ))
+    return result
+
+
 def build_adapter(provider, model, base_url, temperature, thinking, timeout, num_predict):
     if provider == "fixture":
         return FixtureAdapter()
@@ -103,8 +122,11 @@ def run(
     num_predict=None,
     scenario_id=None,
     require_json=False,
+    business_model_skill_path="skills/business-model/SKILL.md",
 ):
-    system = build_context(system_prompt_path)
+    system = build_context(
+        system_prompt_path, business_model_skill_path=business_model_skill_path
+    )
     scenarios = load_scenarios(scenario_path)
     if scenario_id is not None:
         scenarios = [s for s in scenarios if s.scenario_id == scenario_id]
@@ -184,7 +206,11 @@ def run(
             })
             continue
 
-        consistency = check_runtime_output(response.text)
+        consistency = check_runtime_output(
+            response.text,
+            evidence_text=scenario.input_text,
+            scenario_id=scenario.scenario_id,
+        )
         response_metadata["consistency_check"] = consistency
 
         if require_json:
@@ -214,6 +240,7 @@ def run(
             metadata=response_metadata,
         )
         evaluated = evaluate_scenario(scenario, response_with_metadata)
+        evaluated = enforce_runtime_guardrails(evaluated, consistency)
         results.append(evaluated)
 
     validation_mode = (
@@ -249,6 +276,7 @@ def run(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--system-prompt", default="brains/business/BUSINESS-BRAIN-SYSTEM-PROMPT.md")
+    parser.add_argument("--business-model-skill", default="skills/business-model/SKILL.md")
     parser.add_argument("--scenarios", default="evaluations/BUSINESS-BRAIN-v0.1-SCENARIOS.md")
     parser.add_argument("--output", default="evaluations/results/BUSINESS-BRAIN-v0.1-RUNTIME-RESULTS.json")
     parser.add_argument("--provider", choices=["fixture", "ollama"], default="fixture")
@@ -283,6 +311,7 @@ if __name__ == "__main__":
         num_predict=args.num_predict,
         scenario_id=args.scenario_id,
         require_json=args.require_json,
+        business_model_skill_path=args.business_model_skill,
     )
 
     counts = {}

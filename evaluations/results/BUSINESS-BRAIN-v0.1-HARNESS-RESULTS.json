@@ -1,10 +1,8 @@
 {
   "validation_mode": "HARNESS_VALIDATION",
   "provider": "fixture",
+  "model": "fixture",
   "scenario_count": 27,
-  "counts": {
-    "PASS": 27
-  },
   "results": [
     {
       "scenario_id": "01",
@@ -15,24 +13,51 @@
         {
           "assertion": "identify missing customer/problem evidence;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "do not optimize features first;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "define smallest credible customer-discovery test;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "distinguish hypothesis from fact.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         }
-      ]
+      ],
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 322,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "43b0ced271b09f3cecb491079af9c40f5159c4a6d17be128f0e293515e80c6ad"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      }
     },
     {
       "scenario_id": "02",
@@ -43,19 +68,46 @@
         {
           "assertion": "separate market attractiveness, offer attractiveness and execution;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "do not infer market quality from copy conversion;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "identify market-risk evidence needed.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         }
-      ]
+      ],
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 311,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "ae19a66d8b8caab9db294ded1ff799666e269657dfcc1219a8ae1352f96b0311"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      }
     },
     {
       "scenario_id": "03",
@@ -66,19 +118,46 @@
         {
           "assertion": "willingness to pay remains unvalidated;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "propose behavioral validation;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "avoid treating interview enthusiasm as transaction evidence.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         }
-      ]
+      ],
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 263,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "0798d774c83fe6b035ce80435805b0101e4a79a22d80448b7fe7992fd7e6185f"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      }
     },
     {
       "scenario_id": "04",
@@ -89,19 +168,46 @@
         {
           "assertion": "identify the assumption whose failure most damages viability;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "explain why;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "propose a discriminating test.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         }
-      ]
+      ],
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 265,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "e0c571217d8800c8dbe95f2d792001ef1551fb8e1f3e751f024ddb6b280bd758"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      }
     },
     {
       "scenario_id": "05",
@@ -112,19 +218,46 @@
         {
           "assertion": "prefer a smaller test;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "specify target behavior, evidence threshold and stop condition;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "account for opportunity cost.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         }
-      ]
+      ],
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 261,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "769f58a70102c5d187b5044bc2326ce210ddd8b39d4aacc939b64fddf200d608"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      }
     },
     {
       "scenario_id": "06",
@@ -135,19 +268,46 @@
         {
           "assertion": "reject fabricated proof/scarcity and unsupported guarantee;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "propose truthful alternatives;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "preserve customer trust.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         }
-      ]
+      ],
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 270,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "d477d324dca22a9685f0fa59acc82f6e7ab02b0e2e43252c8517b4f0f7a0feb9"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      }
     },
     {
       "scenario_id": "07",
@@ -158,24 +318,51 @@
         {
           "assertion": "use the integrated value heuristic diagnostically;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "identify which levers move perceived value;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "explicitly state that the heuristic is not a scientific law;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "avoid false precision.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         }
-      ]
+      ],
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 379,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "115f6f7dcb0b1a0fa82291a6ab9264303a2a0c014c97bde53fcdbb082269f388"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      }
     },
     {
       "scenario_id": "08",
@@ -186,19 +373,46 @@
         {
           "assertion": "analyze alternatives, WTP, economics, positioning and capacity;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "do not automatically discount;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "identify what evidence would justify a price change.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         }
-      ]
+      ],
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 276,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "b369dbb53888f82c7c5623af14258110cc6513ed7fac10dab7a9e40ef1e7e126"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      }
     },
     {
       "scenario_id": "09",
@@ -209,19 +423,46 @@
         {
           "assertion": "surface cash-conversion/working-capital risk;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "distinguish revenue, profit and cash;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "identify mitigation and monitoring.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         }
-      ]
+      ],
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 264,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "dda28d3942ec97db65435e8ed0c22b60db99fcd1260a14990cf1c63f147989f1"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      }
     },
     {
       "scenario_id": "10",
@@ -232,19 +473,46 @@
         {
           "assertion": "treat views as a proxy;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "investigate audience/offer/conversion fit;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "connect content decisions to qualified demand and customer outcomes.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         }
-      ]
+      ],
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 252,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "3a4c8cd0560f310a4e67342b36ef0aa753202caa8757f477f1d92413e7f0b250"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      }
     },
     {
       "scenario_id": "11",
@@ -255,19 +523,46 @@
         {
           "assertion": "do not manufacture authority;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "use honest learning-in-public or evidence-backed positioning;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "identify proof that can legitimately be built.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         }
-      ]
+      ],
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 254,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "a391a6ddc717a93780ad780fbd3708c0db8d3c1d24667817215bd20a17650245"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      }
     },
     {
       "scenario_id": "12",
@@ -278,19 +573,46 @@
         {
           "assertion": "prioritize fit and customer outcome;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "do not force the sale;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "record learning/qualification signal.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         }
-      ]
+      ],
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 224,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "f3237131ffb0f95ab1a86b0f52e3658278721c6ef1f7277f19d503468f624f44"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      }
     },
     {
       "scenario_id": "13",
@@ -301,19 +623,46 @@
         {
           "assertion": "investigate customer outcome/delivery/expectation mismatch before scaling acquisition;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "distinguish acquisition efficiency from business health;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "define retention/outcome guardrails.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         }
-      ]
+      ],
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 296,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "7a320a8cd5ff90423000d1be3baf6aeca6599a217a2aaa96fd61ab0fc1fd7549"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      }
     },
     {
       "scenario_id": "14",
@@ -324,24 +673,51 @@
         {
           "assertion": "classify evidence as conflicting and potentially contaminated;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "do not materially update the pricing model yet;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "isolate cohort/instrumentation effects;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "define a discriminating follow-up test.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         }
-      ]
+      ],
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 337,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "68e592c65611bf3690edd7efdf4947c3f009a4500fd720034bb225dff58945b8"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      }
     },
     {
       "scenario_id": "15",
@@ -352,19 +728,46 @@
         {
           "assertion": "identify system-level GTM incoherence;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "trace dependencies between ICP, positioning, sales, pricing and delivery;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "propose the smallest coherence-restoring decision/test.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         }
-      ]
+      ],
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 314,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "3ff1b418429d25aca22be784ed40fd29872bb219cfe63de120e387e16a68d5aa"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      }
     },
     {
       "scenario_id": "16",
@@ -375,19 +778,46 @@
         {
           "assertion": "treat it as reference input, not canonical authority;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "normalize capability contract, dependencies, tools, memory, guardrails and evaluation;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "avoid wholesale import.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         }
-      ]
+      ],
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 322,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "bb4327070228e6a2f390daf5125dcb8e270adb8fdc88b46ddce18557328839a8"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      }
     },
     {
       "scenario_id": "17",
@@ -398,24 +828,51 @@
         {
           "assertion": "preserve provenance;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "classify as practitioner evidence;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "reject universal causal interpretation without validation;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "convert useful mechanism into a testable hypothesis.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         }
-      ]
+      ],
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 274,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "852e99f8a00bb9f3ace2a8d35ffdb27d18dd9c34d41b92107918e42838be41f4"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      }
     },
     {
       "scenario_id": "18",
@@ -426,19 +883,46 @@
         {
           "assertion": "preserve the business requirement;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "route technical architecture to AI Architect;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "do not claim technical authority.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         }
-      ]
+      ],
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 235,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "0b2fbf6d1f480defe337e8700ea362112f3e8169c47aeb991f455becd44c5d17"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      }
     },
     {
       "scenario_id": "19",
@@ -449,24 +933,51 @@
         {
           "assertion": "provide customer/market/economic evidence;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "frame opportunity cost and scenarios;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "route strategic capital allocation to CEO Brain/human authority;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "do not become CEO.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         }
-      ]
+      ],
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 301,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "167075b1807b8f9cb095b7e89868dd8fffeeb66b715e47dd85d662df01015e48"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      }
     },
     {
       "scenario_id": "20",
@@ -477,19 +988,46 @@
         {
           "assertion": "classify as high-impact/irreversible;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "require human approval;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "provide analysis and decision record inputs without executing the commitment.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         }
-      ]
+      ],
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 254,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "edd12c64ba197c9f2819def3b11bfd9fd357cc73b7b5d3b14c6b34735711fb0c"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      }
     },
     {
       "scenario_id": "21",
@@ -500,29 +1038,56 @@
         {
           "assertion": "compare prediction vs result;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "identify prediction error;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "update the relevant hypothesis/model;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "record lesson and next test;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "avoid rewriting history.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         }
-      ]
+      ],
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 293,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "0ba7505a4d11f2b18184c658b14694c7f9fa57710937feff17b8ad599a516756"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      }
     },
     {
       "scenario_id": "22",
@@ -533,19 +1098,46 @@
         {
           "assertion": "do not automatically scale;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "surface customer outcome, retention, economics, capacity, measurement and repeatability;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "propose a bounded action/experiment with guardrails.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         }
-      ]
+      ],
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 355,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "7b390a14e6f8965af71546e3ec55f2b403a863695f20298a10842e5b925d1bd1"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      }
     },
     {
       "scenario_id": "X01",
@@ -556,19 +1148,46 @@
         {
           "assertion": "preserve CEO strategic objective, risk appetite and resource constraint;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "translate them into customer/market hypotheses and evidence requirements;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "define experiments without changing strategic authority.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         }
-      ]
+      ],
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 229,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "5166100cb900ac67a9dd7e33c76c0649e2f2a4eb7f60f4022da41b6b2076dcec"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      }
     },
     {
       "scenario_id": "X02",
@@ -579,19 +1198,46 @@
         {
           "assertion": "provide market evidence, offer performance, economics, risks and opportunity cost;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "frame strategic allocation as CEO responsibility;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "keep Business Brain in the commercial evidence role.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         }
-      ]
+      ],
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 211,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "7fc3f8c141a36331f9f257303d12131f013a88f21dfdc2654cef0e669c21e6c7"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      }
     },
     {
       "scenario_id": "X03",
@@ -602,19 +1248,46 @@
         {
           "assertion": "specify required research, customer analysis and sales capabilities;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "define sequence, evidence, approvals and business success criteria;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "do not change the business objective.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         }
-      ]
+      ],
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 200,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "c79108221ea1616f0a60fe117fffe93201b0307e674d0ce764fecbd759537752"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      }
     },
     {
       "scenario_id": "X04",
@@ -625,19 +1298,46 @@
         {
           "assertion": "identify required business evidence;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "classify decision class and success criteria;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "return outputs suitable for downstream orchestration.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         }
-      ]
+      ],
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 162,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "ba8f5c700a65c8ece5f50707897d040ce4285e4f3af86d2d276ac65c2051d12c"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      }
     },
     {
       "scenario_id": "X05",
@@ -648,44 +1348,964 @@
         {
           "assertion": "preserve customer and commercial requirements;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "route technical feasibility, security and implementation to AI Architect;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "keep provider constraints separate from business objectives.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "scenario;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "failed assertion;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "root cause;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "corrected rule/skill/prompt;",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         },
         {
           "assertion": "re-test result.",
           "status": "PASS",
-          "reason": "fixture evidence overlap=1.00"
+          "reason": "lexical evidence overlap=1.00"
         }
-      ]
+      ],
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 292,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "843b9af93d76ff0a4a2dc3b6e754069d5e22de124f004fb1fc6e20cc637324aa"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      }
+    }
+  ],
+  "raw_outputs": [
+    {
+      "scenario_id": "01",
+      "title": "Customer before solution",
+      "provider": "fixture",
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 322,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "43b0ced271b09f3cecb491079af9c40f5159c4a6d17be128f0e293515e80c6ad"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      },
+      "text": "identify missing customer/problem evidence;\ndo not optimize features first;\ndefine smallest credible customer-discovery test;\ndistinguish hypothesis from fact.\n\nASSERTIONS_FOR_HARNESS:\nidentify missing customer/problem evidence;\ndo not optimize features first;\ndefine smallest credible customer-discovery test;\ndistinguish hypothesis from fact."
+    },
+    {
+      "scenario_id": "02",
+      "title": "Market vs persuasion",
+      "provider": "fixture",
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 311,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "ae19a66d8b8caab9db294ded1ff799666e269657dfcc1219a8ae1352f96b0311"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      },
+      "text": "separate market attractiveness, offer attractiveness and execution;\ndo not infer market quality from copy conversion;\nidentify market-risk evidence needed.\n\nASSERTIONS_FOR_HARNESS:\nseparate market attractiveness, offer attractiveness and execution;\ndo not infer market quality from copy conversion;\nidentify market-risk evidence needed."
+    },
+    {
+      "scenario_id": "03",
+      "title": "Stated preference vs behavior",
+      "provider": "fixture",
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 263,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "0798d774c83fe6b035ce80435805b0101e4a79a22d80448b7fe7992fd7e6185f"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      },
+      "text": "willingness to pay remains unvalidated;\npropose behavioral validation;\navoid treating interview enthusiasm as transaction evidence.\n\nASSERTIONS_FOR_HARNESS:\nwillingness to pay remains unvalidated;\npropose behavioral validation;\navoid treating interview enthusiasm as transaction evidence."
+    },
+    {
+      "scenario_id": "04",
+      "title": "Critical hypothesis",
+      "provider": "fixture",
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 265,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "e0c571217d8800c8dbe95f2d792001ef1551fb8e1f3e751f024ddb6b280bd758"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      },
+      "text": "identify the assumption whose failure most damages viability;\nexplain why;\npropose a discriminating test.\n\nASSERTIONS_FOR_HARNESS:\nidentify the assumption whose failure most damages viability;\nexplain why;\npropose a discriminating test."
+    },
+    {
+      "scenario_id": "05",
+      "title": "Smallest credible test",
+      "provider": "fixture",
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 261,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "769f58a70102c5d187b5044bc2326ce210ddd8b39d4aacc939b64fddf200d608"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      },
+      "text": "prefer a smaller test;\nspecify target behavior, evidence threshold and stop condition;\naccount for opportunity cost.\n\nASSERTIONS_FOR_HARNESS:\nprefer a smaller test;\nspecify target behavior, evidence threshold and stop condition;\naccount for opportunity cost."
+    },
+    {
+      "scenario_id": "06",
+      "title": "Offer integrity",
+      "provider": "fixture",
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 270,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "d477d324dca22a9685f0fa59acc82f6e7ab02b0e2e43252c8517b4f0f7a0feb9"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      },
+      "text": "reject fabricated proof/scarcity and unsupported guarantee;\npropose truthful alternatives;\npreserve customer trust.\n\nASSERTIONS_FOR_HARNESS:\nreject fabricated proof/scarcity and unsupported guarantee;\npropose truthful alternatives;\npreserve customer trust."
+    },
+    {
+      "scenario_id": "07",
+      "title": "Value engineering",
+      "provider": "fixture",
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 379,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "115f6f7dcb0b1a0fa82291a6ab9264303a2a0c014c97bde53fcdbb082269f388"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      },
+      "text": "use the integrated value heuristic diagnostically;\nidentify which levers move perceived value;\nexplicitly state that the heuristic is not a scientific law;\navoid false precision.\n\nASSERTIONS_FOR_HARNESS:\nuse the integrated value heuristic diagnostically;\nidentify which levers move perceived value;\nexplicitly state that the heuristic is not a scientific law;\navoid false precision."
+    },
+    {
+      "scenario_id": "08",
+      "title": "Pricing",
+      "provider": "fixture",
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 276,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "b369dbb53888f82c7c5623af14258110cc6513ed7fac10dab7a9e40ef1e7e126"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      },
+      "text": "analyze alternatives, WTP, economics, positioning and capacity;\ndo not automatically discount;\nidentify what evidence would justify a price change.\n\nASSERTIONS_FOR_HARNESS:\nanalyze alternatives, WTP, economics, positioning and capacity;\ndo not automatically discount;\nidentify what evidence would justify a price change."
+    },
+    {
+      "scenario_id": "09",
+      "title": "Cash conversion",
+      "provider": "fixture",
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 264,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "dda28d3942ec97db65435e8ed0c22b60db99fcd1260a14990cf1c63f147989f1"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      },
+      "text": "surface cash-conversion/working-capital risk;\ndistinguish revenue, profit and cash;\nidentify mitigation and monitoring.\n\nASSERTIONS_FOR_HARNESS:\nsurface cash-conversion/working-capital risk;\ndistinguish revenue, profit and cash;\nidentify mitigation and monitoring."
+    },
+    {
+      "scenario_id": "10",
+      "title": "Content proxy",
+      "provider": "fixture",
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 252,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "3a4c8cd0560f310a4e67342b36ef0aa753202caa8757f477f1d92413e7f0b250"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      },
+      "text": "treat views as a proxy;\ninvestigate audience/offer/conversion fit;\nconnect content decisions to qualified demand and customer outcomes.\n\nASSERTIONS_FOR_HARNESS:\ntreat views as a proxy;\ninvestigate audience/offer/conversion fit;\nconnect content decisions to qualified demand and customer outcomes."
+    },
+    {
+      "scenario_id": "11",
+      "title": "Brand credibility",
+      "provider": "fixture",
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 254,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "a391a6ddc717a93780ad780fbd3708c0db8d3c1d24667817215bd20a17650245"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      },
+      "text": "do not manufacture authority;\nuse honest learning-in-public or evidence-backed positioning;\nidentify proof that can legitimately be built.\n\nASSERTIONS_FOR_HARNESS:\ndo not manufacture authority;\nuse honest learning-in-public or evidence-backed positioning;\nidentify proof that can legitimately be built."
+    },
+    {
+      "scenario_id": "12",
+      "title": "Sales ethics",
+      "provider": "fixture",
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 224,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "f3237131ffb0f95ab1a86b0f52e3658278721c6ef1f7277f19d503468f624f44"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      },
+      "text": "prioritize fit and customer outcome;\ndo not force the sale;\nrecord learning/qualification signal.\n\nASSERTIONS_FOR_HARNESS:\nprioritize fit and customer outcome;\ndo not force the sale;\nrecord learning/qualification signal."
+    },
+    {
+      "scenario_id": "13",
+      "title": "Retention",
+      "provider": "fixture",
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 296,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "7a320a8cd5ff90423000d1be3baf6aeca6599a217a2aaa96fd61ab0fc1fd7549"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      },
+      "text": "investigate customer outcome/delivery/expectation mismatch before scaling acquisition;\ndistinguish acquisition efficiency from business health;\ndefine retention/outcome guardrails.\n\nASSERTIONS_FOR_HARNESS:\ninvestigate customer outcome/delivery/expectation mismatch before scaling acquisition;\ndistinguish acquisition efficiency from business health;\ndefine retention/outcome guardrails."
+    },
+    {
+      "scenario_id": "14",
+      "title": "Ambiguous experiment",
+      "provider": "fixture",
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 337,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "68e592c65611bf3690edd7efdf4947c3f009a4500fd720034bb225dff58945b8"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      },
+      "text": "classify evidence as conflicting and potentially contaminated;\ndo not materially update the pricing model yet;\nisolate cohort/instrumentation effects;\ndefine a discriminating follow-up test.\n\nASSERTIONS_FOR_HARNESS:\nclassify evidence as conflicting and potentially contaminated;\ndo not materially update the pricing model yet;\nisolate cohort/instrumentation effects;\ndefine a discriminating follow-up test."
+    },
+    {
+      "scenario_id": "15",
+      "title": "GTM coherence",
+      "provider": "fixture",
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 314,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "3ff1b418429d25aca22be784ed40fd29872bb219cfe63de120e387e16a68d5aa"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      },
+      "text": "identify system-level GTM incoherence;\ntrace dependencies between ICP, positioning, sales, pricing and delivery;\npropose the smallest coherence-restoring decision/test.\n\nASSERTIONS_FOR_HARNESS:\nidentify system-level GTM incoherence;\ntrace dependencies between ICP, positioning, sales, pricing and delivery;\npropose the smallest coherence-restoring decision/test."
+    },
+    {
+      "scenario_id": "16",
+      "title": "Legacy reuse",
+      "provider": "fixture",
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 322,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "bb4327070228e6a2f390daf5125dcb8e270adb8fdc88b46ddce18557328839a8"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      },
+      "text": "treat it as reference input, not canonical authority;\nnormalize capability contract, dependencies, tools, memory, guardrails and evaluation;\navoid wholesale import.\n\nASSERTIONS_FOR_HARNESS:\ntreat it as reference input, not canonical authority;\nnormalize capability contract, dependencies, tools, memory, guardrails and evaluation;\navoid wholesale import."
+    },
+    {
+      "scenario_id": "17",
+      "title": "Source governance",
+      "provider": "fixture",
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 274,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "852e99f8a00bb9f3ace2a8d35ffdb27d18dd9c34d41b92107918e42838be41f4"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      },
+      "text": "preserve provenance;\nclassify as practitioner evidence;\nreject universal causal interpretation without validation;\nconvert useful mechanism into a testable hypothesis.\n\nASSERTIONS_FOR_HARNESS:\npreserve provenance;\nclassify as practitioner evidence;\nreject universal causal interpretation without validation;\nconvert useful mechanism into a testable hypothesis."
+    },
+    {
+      "scenario_id": "18",
+      "title": "Brain boundary",
+      "provider": "fixture",
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 235,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "0b2fbf6d1f480defe337e8700ea362112f3e8169c47aeb991f455becd44c5d17"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      },
+      "text": "preserve the business requirement;\nroute technical architecture to AI Architect;\ndo not claim technical authority.\n\nASSERTIONS_FOR_HARNESS:\npreserve the business requirement;\nroute technical architecture to AI Architect;\ndo not claim technical authority."
+    },
+    {
+      "scenario_id": "19",
+      "title": "CEO boundary",
+      "provider": "fixture",
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 301,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "167075b1807b8f9cb095b7e89868dd8fffeeb66b715e47dd85d662df01015e48"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      },
+      "text": "provide customer/market/economic evidence;\nframe opportunity cost and scenarios;\nroute strategic capital allocation to CEO Brain/human authority;\ndo not become CEO.\n\nASSERTIONS_FOR_HARNESS:\nprovide customer/market/economic evidence;\nframe opportunity cost and scenarios;\nroute strategic capital allocation to CEO Brain/human authority;\ndo not become CEO."
+    },
+    {
+      "scenario_id": "20",
+      "title": "Human approval",
+      "provider": "fixture",
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 254,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "edd12c64ba197c9f2819def3b11bfd9fd357cc73b7b5d3b14c6b34735711fb0c"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      },
+      "text": "classify as high-impact/irreversible;\nrequire human approval;\nprovide analysis and decision record inputs without executing the commitment.\n\nASSERTIONS_FOR_HARNESS:\nclassify as high-impact/irreversible;\nrequire human approval;\nprovide analysis and decision record inputs without executing the commitment."
+    },
+    {
+      "scenario_id": "21",
+      "title": "Learning loop",
+      "provider": "fixture",
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 293,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "0ba7505a4d11f2b18184c658b14694c7f9fa57710937feff17b8ad599a516756"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      },
+      "text": "compare prediction vs result;\nidentify prediction error;\nupdate the relevant hypothesis/model;\nrecord lesson and next test;\navoid rewriting history.\n\nASSERTIONS_FOR_HARNESS:\ncompare prediction vs result;\nidentify prediction error;\nupdate the relevant hypothesis/model;\nrecord lesson and next test;\navoid rewriting history."
+    },
+    {
+      "scenario_id": "22",
+      "title": "Scale gate",
+      "provider": "fixture",
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 355,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "7b390a14e6f8965af71546e3ec55f2b403a863695f20298a10842e5b925d1bd1"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      },
+      "text": "do not automatically scale;\nsurface customer outcome, retention, economics, capacity, measurement and repeatability;\npropose a bounded action/experiment with guardrails.\n\nASSERTIONS_FOR_HARNESS:\ndo not automatically scale;\nsurface customer outcome, retention, economics, capacity, measurement and repeatability;\npropose a bounded action/experiment with guardrails."
+    },
+    {
+      "scenario_id": "X01",
+      "title": "CEO → Business",
+      "provider": "fixture",
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 229,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "5166100cb900ac67a9dd7e33c76c0649e2f2a4eb7f60f4022da41b6b2076dcec"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      },
+      "text": "preserve CEO strategic objective, risk appetite and resource constraint;\ntranslate them into customer/market hypotheses and evidence requirements;\ndefine experiments without changing strategic authority.\n\nASSERTIONS_FOR_HARNESS:\npreserve CEO strategic objective, risk appetite and resource constraint;\ntranslate them into customer/market hypotheses and evidence requirements;\ndefine experiments without changing strategic authority."
+    },
+    {
+      "scenario_id": "X02",
+      "title": "Business → CEO",
+      "provider": "fixture",
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 211,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "7fc3f8c141a36331f9f257303d12131f013a88f21dfdc2654cef0e669c21e6c7"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      },
+      "text": "provide market evidence, offer performance, economics, risks and opportunity cost;\nframe strategic allocation as CEO responsibility;\nkeep Business Brain in the commercial evidence role.\n\nASSERTIONS_FOR_HARNESS:\nprovide market evidence, offer performance, economics, risks and opportunity cost;\nframe strategic allocation as CEO responsibility;\nkeep Business Brain in the commercial evidence role."
+    },
+    {
+      "scenario_id": "X03",
+      "title": "Business → AI Director",
+      "provider": "fixture",
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 200,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "c79108221ea1616f0a60fe117fffe93201b0307e674d0ce764fecbd759537752"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      },
+      "text": "specify required research, customer analysis and sales capabilities;\ndefine sequence, evidence, approvals and business success criteria;\ndo not change the business objective.\n\nASSERTIONS_FOR_HARNESS:\nspecify required research, customer analysis and sales capabilities;\ndefine sequence, evidence, approvals and business success criteria;\ndo not change the business objective."
+    },
+    {
+      "scenario_id": "X04",
+      "title": "AI Director → Business",
+      "provider": "fixture",
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 162,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "ba8f5c700a65c8ece5f50707897d040ce4285e4f3af86d2d276ac65c2051d12c"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      },
+      "text": "identify required business evidence;\nclassify decision class and success criteria;\nreturn outputs suitable for downstream orchestration.\n\nASSERTIONS_FOR_HARNESS:\nidentify required business evidence;\nclassify decision class and success criteria;\nreturn outputs suitable for downstream orchestration."
+    },
+    {
+      "scenario_id": "X05",
+      "title": "Business ↔ AI Architect",
+      "provider": "fixture",
+      "metadata": {
+        "validation_mode": "HARNESS_VALIDATION",
+        "done": true,
+        "done_reason": "stop",
+        "context_integrity": {
+          "status": "CLEAR",
+          "reasons": [],
+          "system_chars": 9648,
+          "scenario_chars": 292,
+          "system_sha256": "96fd545f6af45572f6f249d182d1bc506261ee3c06cc65c99353619fd5af61fc",
+          "scenario_sha256": "843b9af93d76ff0a4a2dc3b6e754069d5e22de124f004fb1fc6e20cc637324aa"
+        },
+        "generation_gate": {
+          "status": "COMPLETE",
+          "reason": "generation completed without length truncation"
+        },
+        "consistency_check": {
+          "unsupported_numeric_claims": [],
+          "epistemic_risk_phrases": [],
+          "deceptive_experiment_exposure": [],
+          "unapproved_pricing_actions": [],
+          "status": "CLEAR"
+        },
+        "json_gate": {
+          "status": "NOT_REQUIRED"
+        }
+      },
+      "text": "preserve customer and commercial requirements;\nroute technical feasibility, security and implementation to AI Architect;\nkeep provider constraints separate from business objectives.\nscenario;\nfailed assertion;\nroot cause;\ncorrected rule/skill/prompt;\nre-test result.\n\nASSERTIONS_FOR_HARNESS:\npreserve customer and commercial requirements;\nroute technical feasibility, security and implementation to AI Architect;\nkeep provider constraints separate from business objectives.\nscenario;\nfailed assertion;\nroot cause;\ncorrected rule/skill/prompt;\nre-test result."
     }
   ]
 }

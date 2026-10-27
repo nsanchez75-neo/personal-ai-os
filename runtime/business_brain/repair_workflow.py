@@ -24,12 +24,15 @@ FIXED_TESTS = (
     "runtime.business_brain.test_learning_loop",
     "runtime.business_brain.test_voi_analysis",
     "runtime.business_brain.test_repair_workflow",
+    "runtime.business_brain.test_consistency",
 )
 REGRESSION_COMPONENTS = {
     "REG-VOI-UNDEREXPLICIT": ("skills", "business reasoning / VoI skill or decision contract"),
     "REG-HYPOTHESIS-EXPERIMENT-MISMATCH": ("skills", "experiment-design skill or scenario"),
     "REG-UNSUPPORTED-NUMERIC-ASSUMPTION": ("brains", "Business Brain reasoning contract"),
     "REG-DECLARATION-VS-BEHAVIOR": ("evaluations", "behavioral evaluation scenario"),
+    "REG-DECEPTIVE-EXPERIMENT-EXPOSURE": ("skills", "ethical marketing experiment guardrail"),
+    "REG-UNAPPROVED-PRICING-ACTION": ("skills", "pricing evidence and approval guardrail"),
 }
 ID_PATTERN = re.compile(r"^[A-Z0-9][A-Z0-9_-]{2,95}$")
 
